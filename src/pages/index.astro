@@ -14,6 +14,10 @@ import site from '../data/site.json';
 	</div>
 
 	<section class="min-h-[85vh] grid grid-cols-12 gap-8 items-center mt-12 md:mt-24 relative">
+		<div class="hidden md:flex absolute -left-8 top-20 flex-col items-center text-[10px] tracking-[0.6em] text-[#841818] font-sans">
+			<span class="[writing-mode:vertical-rl]">东方 · 当代</span>
+			<span class="mt-6 w-px h-20 bg-[#841818]/40"></span>
+		</div>
 		<div class="col-span-12 lg:col-span-7 z-10">
 			<div class="flex items-center gap-4 mb-8">
 				<span class="inline-flex items-center justify-center w-12 h-12 bg-[#841818] text-white font-sans text-xs tracking-[0.3em]">印</span>
@@ -49,6 +53,11 @@ import site from '../data/site.json';
 
 		<div class="col-span-12 lg:col-span-5 relative h-[70vh]">
 			<div class="absolute -top-10 -right-6 w-[120%] h-[120%] bg-[conic-gradient(from_90deg,rgba(132,24,24,0.25),transparent_40%,rgba(47,58,72,0.25),transparent_70%)] animate-spin-slow"></div>
+			<div class="absolute -left-6 bottom-8 w-40 h-40 opacity-20">
+				<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-[#2F3A48]">
+					<path fill="currentColor" d="M40.5,-69.5C52.7,-62.4,63.1,-52.6,70.7,-40.2C78.3,-27.7,83.1,-12.5,83.7,3.4C84.4,19.3,80.9,36,72.2,49.2C63.5,62.3,49.6,72,34.4,76.5C19.1,81,2.4,80.3,-13.4,75.6C-29.2,70.9,-44.2,62.3,-56.6,50.5C-69,38.8,-78.8,23.8,-81.1,7.1C-83.5,-9.6,-78.4,-27.1,-68.2,-40.5C-58,-53.9,-42.7,-63.2,-26.5,-69.4C-10.3,-75.6,6.8,-78.6,21.8,-76.6C36.8,-74.6,49.7,-67.7,40.5,-69.5Z"/>
+				</svg>
+			</div>
 			<div class="absolute inset-0 bg-[#2F3A48] shadow-2xl overflow-hidden border-4 border-[#841818]">
 				<div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.45),transparent_60%)]"></div>
 				<img src="/assets/art/placeholder-7.svg" alt="Featured work" class="object-cover w-full h-full mix-blend-screen opacity-90" />
