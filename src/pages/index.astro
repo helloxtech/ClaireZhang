@@ -3,148 +3,98 @@ import Layout from '../layouts/Layout.astro';
 import site from '../data/site.json';
 ---
 
-<Layout title="Claire Zhang — Portfolio" description="Modern visual design." path="">
-	<!-- Bold background elements -->
-	<div class="fixed inset-0 pointer-events-none z-[-1] bg-[#E5E5E5] overflow-hidden">
-		<!-- Huge typography watermark -->
-		<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-[#111] opacity-[0.03] whitespace-nowrap tracking-tighter">
-			CLAIRE Z.
-		</div>
-		<!-- Floating ink blob / abstract shape -->
-		<div class="absolute top-[-10%] right-[-5%] w-[50vw] h-[50vw] bg-gradient-to-tr from-[#E63946] to-transparent rounded-full mix-blend-multiply filter blur-[80px] opacity-40 animate-blob"></div>
-		<div class="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-gradient-to-tr from-[#111] to-transparent rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-blob animation-delay-2000"></div>
+<Layout
+	title="Claire Zhang — Portfolio"
+	description="Modern visual design rooted in traditional Chinese aesthetics."
+	path=""
+>
+	<div class="absolute inset-0 -z-10">
+		<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(132,24,24,0.30),transparent_45%),radial-gradient(circle_at_10%_20%,rgba(45,58,72,0.25),transparent_40%),radial-gradient(circle_at_30%_80%,rgba(210,210,210,0.25),transparent_35%)]"></div>
+		<div class="absolute inset-0 bg-[linear-gradient(135deg,#2F3A48_0%,#2F3A48_40%,#F5F5F2_41%,#F5F5F2_100%)] opacity-95"></div>
 	</div>
 
-	<!-- Main Hero -->
-	<section class="min-h-screen flex flex-col justify-center px-6 md:px-12 relative pt-20">
-		<div class="max-w-6xl mx-auto w-full relative z-10">
-			<!-- Identity / Location Tag -->
-			<div class="flex items-center gap-4 mb-8 md:mb-12 animate-fade-in-up">
-				<span class="inline-flex items-center justify-center w-12 h-12 bg-[#E63946] text-[#E5E5E5] font-sans text-2xl font-bold rounded-sm transform -rotate-6 hover:rotate-0 transition-transform duration-300">
-					印
-				</span>
-				<span class="text-xs md:text-sm font-bold tracking-[0.3em] uppercase text-[#111] flex items-center gap-2">
-					Vancouver, BC
-					<svg width="20" height="20" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="text-[#E63946] ml-2 transform hover:scale-110 transition-transform duration-300">
-						<path fill="currentColor" d="M256 0l42.4 126.8 131.6-35.3-46.7 114.7 116.7 54.5-127.3 64.9 31.5 125.7-111.4-85.4L270 512h-28l-22.8-146.1-111.4 85.4 31.5-125.7-127.3-64.9 116.7-54.5-46.7-114.7 131.6 35.3L256 0z"/>
+	<section class="min-h-[85vh] grid grid-cols-12 gap-8 items-center mt-12 md:mt-24 relative">
+		<div class="hidden md:flex absolute -left-8 top-20 flex-col items-center text-[10px] tracking-[0.6em] text-[#841818] font-sans">
+			<span class="[writing-mode:vertical-rl]">MODERN · ORIENTAL</span>
+			<span class="mt-6 w-px h-20 bg-[#841818]/40"></span>
+		</div>
+		<div class="col-span-12 lg:col-span-7 z-10">
+			<div class="flex items-center gap-4 mb-8">
+				<span class="inline-flex items-center justify-center w-12 h-12 bg-[#841818] text-white font-sans text-xs tracking-[0.3em]">印</span>
+				<span class="font-sans uppercase tracking-[0.4em] text-xs text-[#841818]">Claire Zhang · Vancouver, BC</span>
+				<span class="inline-flex items-center justify-center w-6 h-6">
+					<svg width="18" height="20" viewBox="0 0 80 90" xmlns="http://www.w3.org/2000/svg" class="text-[#841818]">
+						<path fill="currentColor" d="M40 0c4 8-2 16-6 20 6-2 12-6 16-12-2 8-2 16 4 22 4-6 8-12 10-20 4 8 10 12 16 16-8 2-14 4-18 10 10 0 16 6 18 14-6-4-12-6-20-6 6 6 8 12 6 18-6-6-12-10-20-12 2 8 0 14-4 20-2-8-6-14-14-20-2 8-8 12-14 14 2-6 6-12 6-20-8 4-14 4-20 2 8-2 12-8 16-14-8 2-14 0-20-2 8-4 14-8 20-14-8-2-12-8-14-14 8 4 14 2 20-2-2-6-2-14 2-20 2 8 6 14 12 20 0-8 4-14 10-18z"/>
 					</svg>
 				</span>
 			</div>
 
-			<!-- Bold Typography Headline -->
-			<h1 class="text-[14vw] md:text-[9vw] leading-[0.85] font-black uppercase tracking-tighter text-[#111] mix-blend-color-burn animate-fade-in-up animation-delay-300">
-				Visual <br/>
-				<span class="text-transparent bg-clip-text bg-gradient-to-r from-[#E63946] to-[#99222e] italic pr-4">Rhythm.</span><br/>
-				Guzheng <br/>
-				<span class="ml-[10vw]">Soul.</span>
+			<h1 class="text-6xl md:text-8xl lg:text-[9.5rem] leading-[0.85] font-light tracking-tighter text-[#2F3A48]">
+				BOLD
+				<span class="block text-[#841818] italic">EAST.</span>
+				<span class="block text-[#2F3A48]">NEW</span>
+				<span class="block text-[#2F3A48]">WEST.</span>
 			</h1>
 
-			<!-- Intro Text -->
-			<div class="mt-12 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-end animate-fade-in-up animation-delay-600">
-				<p class="text-lg md:text-2xl font-medium leading-tight max-w-md text-[#111]">
-					{site.profile.tagline}
-				</p>
-				<p class="text-sm md:text-base font-medium text-[#444] max-w-md md:justify-self-end border-l-2 border-[#E63946] pl-4">
-					Translating the cadence of traditional Chinese instruments into striking visual language.
-					Currently seeking to study Art & Design in the U.S.
-				</p>
+			<p class="mt-8 text-lg md:text-2xl font-light text-[#2F3A48] max-w-xl border-l-4 border-[#841818] pl-6">
+				{site.profile.tagline}
+			</p>
+
+			<p class="mt-6 text-sm md:text-base text-[#4B5563] max-w-lg">
+				Translating the rhythm of Guzheng into visual language—ink breath, quiet tension, and the elegance of negative space.
+			</p>
+
+			<div class="mt-10 flex flex-wrap gap-10 text-xs uppercase tracking-[0.35em] font-sans text-[#2F3A48]">
+				<a href="/portfolio" class="group flex items-center gap-3">
+					<span class="w-10 h-[2px] bg-[#2F3A48] group-hover:bg-[#841818] transition-all duration-500"></span>
+					View Works
+				</a>
+				<a href="/music" class="group flex items-center gap-3">
+					<span class="w-10 h-[2px] bg-[#2F3A48] group-hover:bg-[#841818] transition-all duration-500"></span>
+					Listen
+				</a>
 			</div>
 		</div>
 
-		<!-- Scroll Indicator -->
-		<div class="absolute bottom-10 left-6 md:left-12 flex items-center gap-4 text-xs font-bold uppercase tracking-[0.2em] animate-pulse-slow text-[#111]">
-			<span class="w-12 h-px bg-[#111]"></span>
-			Scroll
+		<div class="col-span-12 lg:col-span-5 relative h-[70vh]">
+			<div class="absolute -top-10 -right-6 w-[120%] h-[120%] bg-[conic-gradient(from_90deg,rgba(132,24,24,0.25),transparent_40%,rgba(47,58,72,0.25),transparent_70%)] animate-spin-slow"></div>
+			<div class="absolute -left-6 bottom-8 w-40 h-40 opacity-20">
+				<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-[#2F3A48]">
+					<path fill="currentColor" d="M40.5,-69.5C52.7,-62.4,63.1,-52.6,70.7,-40.2C78.3,-27.7,83.1,-12.5,83.7,3.4C84.4,19.3,80.9,36,72.2,49.2C63.5,62.3,49.6,72,34.4,76.5C19.1,81,2.4,80.3,-13.4,75.6C-29.2,70.9,-44.2,62.3,-56.6,50.5C-69,38.8,-78.8,23.8,-81.1,7.1C-83.5,-9.6,-78.4,-27.1,-68.2,-40.5C-58,-53.9,-42.7,-63.2,-26.5,-69.4C-10.3,-75.6,6.8,-78.6,21.8,-76.6C36.8,-74.6,49.7,-67.7,40.5,-69.5Z"/>
+				</svg>
+			</div>
+			<div class="absolute right-6 top-6 opacity-35">
+				<svg width="120" height="135" viewBox="0 0 80 90" xmlns="http://www.w3.org/2000/svg" class="text-[#841818]">
+					<path fill="currentColor" d="M40 0c4 8-2 16-6 20 6-2 12-6 16-12-2 8-2 16 4 22 4-6 8-12 10-20 4 8 10 12 16 16-8 2-14 4-18 10 10 0 16 6 18 14-6-4-12-6-20-6 6 6 8 12 6 18-6-6-12-10-20-12 2 8 0 14-4 20-2-8-6-14-14-20-2 8-8 12-14 14 2-6 6-12 6-20-8 4-14 4-20 2 8-2 12-8 16-14-8 2-14 0-20-2 8-4 14-8 20-14-8-2-12-8-14-14 8 4 14 2 20-2-2-6-2-14 2-20 2 8 6 14 12 20 0-8 4-14 10-18z"/>
+				</svg>
+			</div>
+			<div class="absolute inset-0 bg-[#2F3A48] shadow-2xl overflow-hidden border-4 border-[#841818]">
+				<div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.45),transparent_60%)]"></div>
+				<img src="/assets/art/placeholder-7.svg" alt="Featured work" class="object-cover w-full h-full mix-blend-screen opacity-90" />
+				<div class="absolute top-4 left-4 text-white font-sans text-[10px] tracking-[0.3em]">SIGNATURE</div>
+				<div class="absolute bottom-6 right-6 w-20 h-20 bg-[#841818] text-white font-sans text-3xl flex items-center justify-center rotate-[-8deg]">印</div>
+			</div>
 		</div>
 	</section>
 
-	<section class="py-32 px-6 md:px-12 bg-[#111] text-[#E5E5E5] relative">
-		<!-- Signature Marquee -->
-		<div class="absolute top-0 left-0 w-full overflow-hidden flex items-center h-24 border-b border-[#222] opacity-30">
-			<div class="whitespace-nowrap animate-marquee flex items-center text-4xl font-serif italic tracking-widest">
-				<span class="mx-10">CLAIRE ZHANG</span>
-				<span class="mx-10">MODERN ORIENTAL</span>
-				<span class="mx-10">CLAIRE ZHANG</span>
-				<span class="mx-10">MODERN ORIENTAL</span>
-				<span class="mx-10">CLAIRE ZHANG</span>
-				<span class="mx-10">MODERN ORIENTAL</span>
+	<section class="mt-16 border-t-2 border-[#2F3A48] pt-12">
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm text-[#2F3A48]">
+			<div class="md:col-span-1">
+				<h2 class="text-2xl font-light mb-2">Highlights</h2>
+				<p class="text-xs uppercase tracking-[0.25em] text-[#841818] font-sans">{site.profile.appIntent}</p>
 			</div>
-		</div>
-
-		<div class="max-w-6xl mx-auto mt-24 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-			<div class="md:col-span-7">
-				<h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 text-[#E63946]">
-					Featured <br/> Works.
-				</h2>
-				<div class="flex flex-col gap-6 font-bold uppercase tracking-[0.2em] text-xs md:text-sm">
-					<a href="/portfolio" class="hover-target group flex items-center gap-4 text-[#E5E5E5] hover:text-[#E63946] transition-colors">
-						<span class="w-12 h-[2px] bg-[#E5E5E5] group-hover:bg-[#E63946] transition-colors"></span>
-						View Full Portfolio
-					</a>
-					<a href="/music" class="hover-target group flex items-center gap-4 text-[#E5E5E5] hover:text-[#E63946] transition-colors">
-						<span class="w-12 h-[2px] bg-[#E5E5E5] group-hover:bg-[#E63946] transition-colors"></span>
-						Listen to Guzheng
-					</a>
+			{site.highlights.map((h, i) => (
+				<div class="border-l-2 border-[#841818] pl-6">
+					<p class="text-5xl font-light mb-2 text-[#2F3A48]">0{i+1}</p>
+					<p class="uppercase tracking-[0.25em] text-[#4B5563] font-sans">{h}</p>
 				</div>
-			</div>
-			
-			<div class="md:col-span-5 relative group">
-				<div class="aspect-[4/5] bg-[#222] overflow-hidden">
-					<img src="/assets/art/placeholder-7.svg" alt="Featured work" class="object-cover w-full h-full mix-blend-screen opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-				</div>
-				<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-[#E63946] flex items-center justify-center font-bold text-[#111] text-3xl transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
-					印
-				</div>
-			</div>
+			))}
 		</div>
 	</section>
 
 	<style>
-		@keyframes blob {
-			0% { transform: translate(0px, 0px) scale(1); }
-			33% { transform: translate(30px, -50px) scale(1.1); }
-			66% { transform: translate(-20px, 20px) scale(0.9); }
-			100% { transform: translate(0px, 0px) scale(1); }
-		}
-		.animate-blob {
-			animation: blob 10s infinite alternate;
-		}
-		.animation-delay-2000 { animation-delay: 2s; }
-		.animation-delay-300 { animation-delay: 300ms; }
-		.animation-delay-600 { animation-delay: 600ms; }
-		
-		@keyframes fadeInUp {
-			from { opacity: 0; transform: translateY(40px); }
-			to { opacity: 1; transform: translateY(0); }
-		}
-		.animate-fade-in-up {
-			animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-			opacity: 0;
-		}
-		
-		@keyframes pulseSlow {
-			0%, 100% { opacity: 0.3; }
-			50% { opacity: 1; }
-		}
-		.animate-pulse-slow {
-			animation: pulseSlow 3s ease-in-out infinite;
-		}
-
-		@keyframes marquee {
-			0% { transform: translateX(0); }
-			100% { transform: translateX(-50%); }
-		}
-		.animate-marquee {
-			animation: marquee 20s linear infinite;
-			width: 200%;
-		}
-
-		@media (prefers-reduced-motion: reduce) {
-			.animate-blob, .animate-fade-in-up, .animate-pulse-slow, .animate-marquee {
-				animation: none;
-				opacity: 1;
-				transform: none;
-			}
-		}
+		@keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+		.animate-spin-slow { animation: spinSlow 40s linear infinite; }
+		@media (prefers-reduced-motion: reduce) { .animate-spin-slow { animation: none; } }
 	</style>
 </Layout>
