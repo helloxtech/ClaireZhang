@@ -14,10 +14,13 @@ import site from '../data/site.json';
 				Modern visual design<br />
 				<span class="italic text-[#A9A39A]">rooted in Chinese aesthetics.</span>
 			</h1>
-			<p class="text-lg md:text-2xl font-light text-[#6f6963] mb-8 max-w-xl leading-relaxed">
+			<p class="text-lg md:text-2xl font-light text-[#6f6963] mb-6 max-w-xl leading-relaxed">
 				{site.profile.tagline}
 			</p>
-			<div class="flex flex-wrap gap-8 text-xs uppercase tracking-[0.25em] font-sans text-[#1a1a1a]">
+			<p class="text-sm md:text-base text-[#6f6963] max-w-xl">
+				I translate the rhythm of Guzheng into visual language—ink breath, quiet tension, and the elegance of negative space.
+			</p>
+			<div class="mt-8 flex flex-wrap gap-8 text-xs uppercase tracking-[0.25em] font-sans text-[#1a1a1a]">
 				<a href="/portfolio" class="border-b border-transparent hover:border-black transition-all pb-1 duration-300">View Selected Works</a>
 				<a href="/music" class="border-b border-transparent hover:border-[#c93a3a] text-[#c93a3a] transition-all pb-1 duration-300">Listen to Guzheng</a>
 			</div>
@@ -30,10 +33,11 @@ import site from '../data/site.json';
 				{site.profile.appIntent}
 			</p>
 		</div>
-		<div class="md:col-span-5">
+		<div class="md:col-span-5 relative">
 			<div class="aspect-[4/5] bg-[#EDE8E1] overflow-hidden shadow-lg">
 				<img src="/assets/art/placeholder-7.svg" alt="Featured work" class="object-cover w-full h-full opacity-95 hover:opacity-100 transition-opacity duration-700" />
 			</div>
+			<div class="absolute -right-4 -bottom-4 w-16 h-16 border border-[#c93a3a] text-[#c93a3a] font-sans text-[10px] tracking-[0.3em] flex items-center justify-center">印</div>
 		</div>
 	</section>
 
