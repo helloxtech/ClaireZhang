@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Claire Zhang - Portfolio" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-[#FAFAFA] text-[#1a1a1a] font-serif antialiased selection:bg-[#c93a3a] selection:text-white min-h-screen flex flex-col">
+		<nav class="w-full py-8 px-6 md:px-12 flex justify-between items-center z-10">
+			<a href="/" class="text-xl md:text-2xl tracking-widest font-bold">CLAIRE ZHANG</a>
+			<div class="space-x-6 text-sm tracking-widest uppercase">
+				<a href="/portfolio" class="hover:text-[#c93a3a] transition-colors duration-300">Portfolio</a>
+				<a href="/music" class="hover:text-[#c93a3a] transition-colors duration-300">Music</a>
+				<a href="/about" class="hover:text-[#c93a3a] transition-colors duration-300">About</a>
+			</div>
+		</nav>
+		<main class="flex-grow px-6 md:px-12 pb-24">
+			<slot />
+		</main>
+		<footer class="py-8 text-center text-xs text-gray-400 tracking-wider mt-auto border-t border-gray-200 mx-12">
+			© {new Date().getFullYear()} CLAIRE ZHANG. ALL RIGHTS RESERVED.
+		</footer>
+	</body>
+</html>
+<style is:global>
+	body {
+		font-family: 'Playfair Display', 'Noto Serif SC', serif;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Playfair Display', serif;
+	}
+</style>

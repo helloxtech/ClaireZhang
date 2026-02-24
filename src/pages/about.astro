@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - Claire Zhang">
+	<div class="grid grid-cols-1 md:grid-cols-12 gap-16 mt-12 md:mt-24 mb-24">
+		
+		<!-- Image -->
+		<div class="md:col-span-5 relative">
+			<div class="aspect-[3/4] bg-gray-100 overflow-hidden shadow-lg">
+				<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Claire Zhang" class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-1000" />
+			</div>
+			<!-- Subtle decorative element -->
+			<div class="absolute -right-8 -bottom-8 w-48 h-48 border border-gray-200 -z-10 hidden md:block"></div>
+		</div>
+
+		<!-- Text Content -->
+		<div class="md:col-span-7 flex flex-col justify-center">
+			<h1 class="text-4xl md:text-6xl font-light mb-8">Claire Zhang</h1>
+			
+			<div class="space-y-6 text-gray-700 leading-relaxed font-light text-lg">
+				<p>
+					Hello, I'm Claire. I am a visual artist and musician based in Vancouver, currently studying at Semiahmoo Secondary. My creative journey is an ongoing dialogue between two distinct but deeply connected worlds: the structured, expressive discipline of Western visual arts, and the ancient, fluid emotionality of the Chinese Guzheng.
+				</p>
+				<p>
+					For over [X] years, I have trained in Guzheng, performing at numerous events and discovering how sound can paint landscapes in the mind. Concurrently, my passion for drawing and painting has evolved into a broader exploration of design. I believe the negative space—the 'blankness'—in a composition is just as vital as the subject itself, a philosophy rooted deeply in traditional Chinese aesthetics.
+				</p>
+				<p>
+					As I prepare for the next step in my academic journey, my goal is to pursue higher education in art and design, where I can further integrate cross-cultural narratives into modern visual communication.
+				</p>
+			</div>
+
+			<div class="mt-16 border-t border-gray-200 pt-12">
+				<h3 class="text-sm uppercase tracking-widest text-gray-400 mb-6 font-medium">Experience & Education</h3>
+				<ul class="space-y-4">
+					<li class="flex justify-between items-baseline border-b border-gray-100 pb-2">
+						<span class="font-medium">Semiahmoo Secondary School</span>
+						<span class="text-sm text-gray-500 font-serif italic">Present</span>
+					</li>
+					<li class="flex justify-between items-baseline border-b border-gray-100 pb-2">
+						<span class="font-medium">Selected Art Exhibition [Name]</span>
+						<span class="text-sm text-gray-500 font-serif italic">2024</span>
+					</li>
+					<li class="flex justify-between items-baseline border-b border-gray-100 pb-2">
+						<span class="font-medium">Guzheng Soloist — [Event Name]</span>
+						<span class="text-sm text-gray-500 font-serif italic">2023</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="mt-16">
+				<a href="mailto:hello@example.com" class="inline-block border border-gray-900 px-8 py-3 text-sm tracking-widest uppercase hover:bg-gray-900 hover:text-white transition-colors duration-300">
+					Contact Me
+				</a>
+			</div>
+		</div>
+
+	</div>
+</Layout>
