@@ -8,93 +8,74 @@ import site from '../data/site.json';
 	description="Modern visual design rooted in traditional Chinese aesthetics."
 	path=""
 >
-	<div class="absolute top-0 right-0 w-full md:w-1/2 h-screen bg-[#c93a3a] -z-10 mix-blend-multiply opacity-5 animate-pulse-slow"></div>
+	<div class="absolute inset-0 -z-10">
+		<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,58,58,0.35),transparent_45%),radial-gradient(circle_at_10%_20%,rgba(10,34,64,0.25),transparent_40%),radial-gradient(circle_at_30%_80%,rgba(255,196,87,0.22),transparent_35%)]"></div>
+		<div class="absolute inset-0 bg-[linear-gradient(135deg,#0A223F_0%,#0A223F_35%,#FAFAF7_36%,#FAFAF7_100%)] opacity-90"></div>
+	</div>
 
-	<section class="min-h-[80vh] flex flex-col md:flex-row items-center justify-between gap-12 mt-12 md:mt-24 mb-32 relative">
-		
-		<!-- Left: Striking Typography -->
-		<div class="md:w-3/5 z-10">
-			<div class="inline-block border border-[#c93a3a] text-[#c93a3a] px-4 py-1 text-xs tracking-[0.4em] mb-8 font-sans">
-				CLAIRE ZHANG
+	<section class="min-h-[85vh] grid grid-cols-12 gap-8 items-center mt-12 md:mt-24 relative">
+		<div class="col-span-12 lg:col-span-7 z-10">
+			<div class="flex items-center gap-4 mb-8">
+				<span class="inline-flex items-center justify-center w-12 h-12 bg-[#c93a3a] text-white font-sans text-xs tracking-[0.3em]">印</span>
+				<span class="font-sans uppercase tracking-[0.4em] text-xs text-[#c93a3a]">Claire Zhang</span>
 			</div>
-			
-			<h1 class="text-6xl md:text-8xl lg:text-9xl font-light mb-8 tracking-tighter leading-[0.9]">
-				Modern <br />
-				<span class="italic text-[#A9A39A] font-serif">Aesthetics.</span>
+
+			<h1 class="text-6xl md:text-8xl lg:text-[9.5rem] leading-[0.85] font-light tracking-tighter text-[#0A223F]">
+				BOLD
+				<span class="block text-[#c93a3a] italic">EAST.</span>
+				<span class="block text-[#0A223F]">NEW</span>
+				<span class="block text-[#0A223F]">WEST.</span>
 			</h1>
-			
-			<p class="text-xl md:text-3xl font-light text-[#1a1a1a] mb-6 max-w-xl leading-relaxed border-l-2 border-[#c93a3a] pl-6">
+
+			<p class="mt-8 text-lg md:text-2xl font-light text-[#0A223F] max-w-xl border-l-4 border-[#c93a3a] pl-6">
 				{site.profile.tagline}
 			</p>
-			
-			<p class="text-sm md:text-base text-[#6f6963] max-w-lg mb-12">
-				Translating the rhythm of Guzheng into visual language—ink breath, quiet tension, and the profound elegance of negative space.
+
+			<p class="mt-6 text-sm md:text-base text-[#4b5563] max-w-lg">
+				Translating the rhythm of Guzheng into visual language—ink breath, quiet tension, and the elegance of negative space.
 			</p>
-			
-			<div class="flex flex-wrap gap-8 text-xs uppercase tracking-[0.25em] font-sans font-medium text-[#1a1a1a]">
-				<a href="/portfolio" class="group flex items-center gap-3 hover:text-[#c93a3a] transition-colors duration-300">
-					<span class="w-8 h-[1px] bg-black group-hover:bg-[#c93a3a] group-hover:w-12 transition-all duration-500"></span>
+
+			<div class="mt-10 flex flex-wrap gap-10 text-xs uppercase tracking-[0.35em] font-sans text-[#0A223F]">
+				<a href="/portfolio" class="group flex items-center gap-3">
+					<span class="w-10 h-[2px] bg-[#0A223F] group-hover:bg-[#c93a3a] transition-all duration-500"></span>
 					View Works
 				</a>
-				<a href="/music" class="group flex items-center gap-3 hover:text-[#c93a3a] transition-colors duration-300">
-					<span class="w-8 h-[1px] bg-black group-hover:bg-[#c93a3a] group-hover:w-12 transition-all duration-500"></span>
+				<a href="/music" class="group flex items-center gap-3">
+					<span class="w-10 h-[2px] bg-[#0A223F] group-hover:bg-[#c93a3a] transition-all duration-500"></span>
 					Listen
 				</a>
 			</div>
 		</div>
 
-		<!-- Right: Dramatic Visual -->
-		<div class="md:w-2/5 relative w-full h-[60vh] md:h-[80vh] group">
-			<!-- Animated Ink Blob Behind -->
-			<div class="absolute -top-20 -left-20 w-[150%] h-[150%] bg-[url('/assets/art/placeholder-1.svg')] bg-no-repeat bg-contain bg-center opacity-10 animate-spin-slow pointer-events-none mix-blend-multiply"></div>
-			
-			<!-- Main Image Card -->
-			<div class="relative w-full h-full bg-[#EDE8E1] overflow-hidden shadow-2xl">
-				<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none"></div>
-				<img src="/assets/art/placeholder-7.svg" alt="Featured work" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]" />
-				
-				<!-- Bold Red Seal Overlay -->
-				<div class="absolute bottom-6 right-6 z-20 w-24 h-24 bg-[#c93a3a] text-[#f4f0ea] font-sans text-4xl flex items-center justify-center shadow-lg transform rotate-[-5deg] group-hover:rotate-0 transition-transform duration-500">
-					印
-				</div>
+		<div class="col-span-12 lg:col-span-5 relative h-[70vh]">
+			<div class="absolute -top-10 -right-6 w-[120%] h-[120%] bg-[conic-gradient(from_90deg,rgba(201,58,58,0.25),transparent_40%,rgba(10,34,63,0.25),transparent_70%)] animate-spin-slow"></div>
+			<div class="absolute inset-0 bg-[#0A223F] shadow-2xl overflow-hidden border-4 border-[#c93a3a]">
+				<div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.45),transparent_60%)]"></div>
+				<img src="/assets/art/placeholder-7.svg" alt="Featured work" class="object-cover w-full h-full mix-blend-screen opacity-90" />
+				<div class="absolute top-4 left-4 text-white font-sans text-[10px] tracking-[0.3em]">SIGNATURE</div>
+				<div class="absolute bottom-6 right-6 w-20 h-20 bg-[#c93a3a] text-white font-sans text-3xl flex items-center justify-center rotate-[-8deg]">印</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="mt-24 border-t border-[#1a1a1a] pt-16">
-		<div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm text-[#6f6963]">
+	<section class="mt-16 border-t-2 border-[#0A223F] pt-12">
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm text-[#0A223F]">
 			<div class="md:col-span-1">
-				<h2 class="text-2xl font-light text-[#1a1a1a] mb-2">Highlights</h2>
-				<p class="text-xs uppercase tracking-[0.2em] text-[#c93a3a] font-sans">{site.profile.appIntent}</p>
+				<h2 class="text-2xl font-light mb-2">Highlights</h2>
+				<p class="text-xs uppercase tracking-[0.25em] text-[#c93a3a] font-sans">{site.profile.appIntent}</p>
 			</div>
-			
 			{site.highlights.map((h, i) => (
-				<div class="border-l border-[#EDE8E1] pl-6">
-					<p class="text-4xl font-light text-[#1a1a1a] mb-2">0{i+1}</p>
-					<p class="uppercase tracking-[0.2em] text-[#A9A39A] font-sans">{h}</p>
+				<div class="border-l-2 border-[#c93a3a] pl-6">
+					<p class="text-5xl font-light mb-2 text-[#0A223F]">0{i+1}</p>
+					<p class="uppercase tracking-[0.25em] text-[#4b5563] font-sans">{h}</p>
 				</div>
 			))}
 		</div>
 	</section>
 
 	<style>
-		@keyframes pulseSlow {
-			0%, 100% { opacity: 0.02; }
-			50% { opacity: 0.08; }
-		}
-		@keyframes spinSlow {
-			from { transform: rotate(0deg) scale(1); }
-			to { transform: rotate(360deg) scale(1.1); }
-		}
-		.animate-pulse-slow {
-			animation: pulseSlow 15s ease-in-out infinite;
-		}
-		.animate-spin-slow {
-			animation: spinSlow 60s linear infinite;
-		}
-		@media (prefers-reduced-motion: reduce) {
-			.animate-pulse-slow, .animate-spin-slow { animation: none; }
-			img { transition: none !important; }
-		}
+		@keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+		.animate-spin-slow { animation: spinSlow 40s linear infinite; }
+		@media (prefers-reduced-motion: reduce) { .animate-spin-slow { animation: none; } }
 	</style>
 </Layout>
