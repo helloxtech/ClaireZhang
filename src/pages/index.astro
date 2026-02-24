@@ -40,17 +40,17 @@ import site from '../data/site.json';
 				</svg>
 			</div>
 			<div class="aspect-[4/5] bg-[#EDE8E1] overflow-hidden shadow-lg relative">
-				<div class="absolute inset-0 pointer-events-none">
-					<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-[0.16] animate-ink-slow text-[#1a1a1a]">
+				<div class="absolute inset-0 pointer-events-none z-10 mix-blend-multiply">
+					<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-[0.28] animate-ink-slow text-[#1a1a1a]">
 						<path fill="currentColor" d="M42.8,-69.8C55.6,-64.8,66.4,-55.2,73.2,-43.1C80,-31,82.8,-15.5,81.6,-0.7C80.4,14.1,75.1,28.2,66.5,39.2C57.9,50.3,46,58.4,33.3,65.7C20.6,73,7.2,79.4,-7.3,81.5C-21.7,83.6,-37.1,81.5,-48.8,73.2C-60.4,65,-68.2,50.5,-73.2,35.7C-78.3,20.8,-80.6,5.4,-78.2,-9.1C-75.8,-23.6,-68.6,-37.2,-57.8,-47.2C-47,-57.2,-32.6,-63.6,-17.6,-67.2C-2.6,-70.8,13,-71.6,28.4,-70.7C43.8,-69.8,59.1,-67.2,42.8,-69.8Z"/>
 					</svg>
 				</div>
-				<div class="absolute inset-0 pointer-events-none">
+				<div class="absolute inset-0 pointer-events-none z-10">
 					<div class="ripple r1"></div>
 					<div class="ripple r2"></div>
 					<div class="ripple r3"></div>
 				</div>
-				<img src="/assets/art/placeholder-7.svg" alt="Featured work" class="object-cover w-full h-full opacity-95 hover:opacity-100 transition-opacity duration-700" />
+				<img src="/assets/art/placeholder-7.svg" alt="Featured work" class="object-cover w-full h-full opacity-95 hover:opacity-100 transition-opacity duration-700 relative z-0" />
 			</div>
 			<div class="absolute -right-4 -bottom-4 w-16 h-16 border border-[#c93a3a] text-[#c93a3a] font-sans text-[10px] tracking-[0.3em] flex items-center justify-center">印</div>
 		</div>
@@ -75,13 +75,16 @@ import site from '../data/site.json';
 		.animate-ink-slow { animation: inkPulse 10s ease-in-out infinite; }
 		.ripple {
 			position: absolute;
-			inset: 12% 12%;
-			border: 1px solid rgba(201, 58, 58, 0.25);
+			inset: 10% 10%;
+			border: 1px solid rgba(201, 58, 58, 0.45);
 			border-radius: 50%;
-			animation: ripple 6s ease-in-out infinite;
+			animation: ripple 5s ease-in-out infinite;
 		}
-		.ripple.r2 { animation-delay: 1.8s; inset: 18% 18%; }
-		.ripple.r3 { animation-delay: 3.6s; inset: 24% 24%; }
+		.ripple.r2 { animation-delay: 1.4s; inset: 16% 16%; }
+		.ripple.r3 { animation-delay: 2.8s; inset: 22% 22%; }
+		@media (prefers-reduced-motion: reduce) {
+			.animate-ink, .animate-ink-slow, .ripple { animation: none; }
+		}
 	</style>
 	</section>
 
