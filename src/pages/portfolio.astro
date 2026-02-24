@@ -1,34 +1,54 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
 
-const artworks = [
-  { id: 1, title: "Serenity in Ink", category: "Painting", year: "2025", image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800&auto=format&fit=crop" },
-  { id: 2, title: "Urban Echoes", category: "Mixed Media", year: "2024", image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop" },
-  { id: 3, title: "The Silent Bamboo", category: "Digital Art", year: "2025", image: "https://images.unsplash.com/photo-1580136579312-94651dfd596d?q=80&w=800&auto=format&fit=crop" },
-  { id: 4, title: "Fragments", category: "Design", year: "2024", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" },
-  { id: 5, title: "Whispers of the Past", category: "Painting", year: "2023", image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop" },
-  { id: 6, title: "Structure & Flow", category: "Sketch", year: "2025", image: "https://images.unsplash.com/photo-1506744626753-1fa7604d459a?q=80&w=800&auto=format&fit=crop" }
-];
+const filters = ['All', 'Painting', 'Digital', 'Design', 'Sketch', 'Mixed Media'];
 ---
 
-<Layout title="Portfolio - Claire Zhang">
-	<div class="mt-12 md:mt-24 mb-16">
+<Layout title="Portfolio - Claire Zhang" description="Selected visual works and process case studies." path="portfolio">
+	<div class="mt-12 md:mt-24 mb-10">
 		<h1 class="text-4xl md:text-6xl font-light mb-4">Selected Works</h1>
-		<p class="text-gray-500 max-w-2xl">A collection of visual explorations bridging traditional aesthetics and modern design principles.</p>
+		<p class="text-[#6f6963] max-w-2xl">A curated collection bridging traditional aesthetics and modern design principles.</p>
+	</div>
+
+	<div class="flex flex-wrap gap-6 text-xs uppercase tracking-[0.25em] text-[#A9A39A] font-sans mb-12">
+		{filters.map((f) => (
+			<span class={`px-3 py-1 border border-[#EDE8E1] ${f === 'All' ? 'text-[#1a1a1a] border-[#1a1a1a]' : ''}`}>{f}</span>
+		))}
 	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-		{artworks.map((art) => (
-			<div class="group cursor-pointer">
-				<div class="relative overflow-hidden aspect-[4/5] bg-gray-100 mb-4">
-					<img src={art.image} alt={art.title} class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-90 group-hover:opacity-100" />
+		{site.artworks.map((art) => (
+			<a href="#" class="group">
+				<div class="relative overflow-hidden aspect-[4/5] bg-[#EDE8E1] mb-4">
+					<img src={art.image} alt={art.title} class="object-cover w-full h-full transform group-hover:scale-[1.02] transition-transform duration-700 ease-in-out opacity-95 group-hover:opacity-100" />
 				</div>
 				<h3 class="text-lg font-medium">{art.title}</h3>
-				<div class="flex justify-between text-sm text-gray-500 mt-1 uppercase tracking-widest">
+				<p class="text-sm text-[#6f6963] mt-1">{art.desc}</p>
+				<div class="flex justify-between text-xs text-[#A9A39A] mt-2 uppercase tracking-widest font-sans">
 					<span>{art.category}</span>
 					<span>{art.year}</span>
 				</div>
-			</div>
+			</a>
 		))}
 	</div>
+
+	<section class="mt-24 border-t border-[#EDE8E1] pt-16">
+		<h2 class="text-2xl md:text-4xl font-light mb-8">Case Studies</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+			{site.caseStudies.map((c) => (
+				<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+					<div class="md:col-span-2 aspect-[4/5] bg-[#EDE8E1] overflow-hidden">
+						<img src={c.image} alt={c.title} class="object-cover w-full h-full" />
+					</div>
+					<div class="md:col-span-3">
+						<h3 class="text-xl font-medium mb-2">{c.title}</h3>
+						<p class="text-[#6f6963] mb-3">{c.summary}</p>
+						<p class="text-xs uppercase tracking-[0.25em] text-[#A9A39A] font-sans">Process</p>
+						<p class="text-sm text-[#6f6963]">{c.process}</p>
+					</div>
+				</div>
+			))}
+		</div>
+	</section>
 </Layout>

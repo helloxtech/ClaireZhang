@@ -1,25 +1,56 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import site from '../data/site.json';
 ---
 
-<Layout title="Claire Zhang - Artist & Musician">
-	<div class="h-[75vh] flex flex-col justify-center items-start md:w-2/3 mt-12 md:mt-24">
-		<h1 class="text-5xl md:text-8xl font-light mb-6 tracking-tight text-gray-900 leading-tight">
-			Where East <br/><span class="italic text-gray-500 font-serif">Meets West.</span>
-		</h1>
-		<p class="text-lg md:text-2xl font-light text-gray-600 mb-12 max-w-xl leading-relaxed">
-			Exploring the intersection of modern visual design and traditional Guzheng performance.
-		</p>
-		<div class="flex space-x-8 text-sm uppercase tracking-[0.2em] font-medium text-gray-800">
-			<a href="/portfolio" class="border-b border-transparent hover:border-black transition-all pb-1 duration-300">View Portfolio</a>
-			<a href="/music" class="border-b border-transparent hover:border-[#c93a3a] text-[#c93a3a] transition-all pb-1 duration-300">Listen</a>
+<Layout
+	title="Claire Zhang — Portfolio"
+	description="Modern visual design rooted in traditional Chinese aesthetics."
+	path=""
+>
+	<section class="min-h-[60vh] md:min-h-[70vh] grid grid-cols-1 md:grid-cols-12 gap-12 items-center mt-8 md:mt-16">
+		<div class="md:col-span-7">
+			<h1 class="text-5xl md:text-8xl font-light mb-6 tracking-tight leading-tight">
+				Modern visual design<br />
+				<span class="italic text-[#A9A39A]">rooted in Chinese aesthetics.</span>
+			</h1>
+			<p class="text-lg md:text-2xl font-light text-[#6f6963] mb-8 max-w-xl leading-relaxed">
+				{site.profile.tagline}
+			</p>
+			<div class="flex flex-wrap gap-8 text-xs uppercase tracking-[0.25em] font-sans text-[#1a1a1a]">
+				<a href="/portfolio" class="border-b border-transparent hover:border-black transition-all pb-1 duration-300">View Selected Works</a>
+				<a href="/music" class="border-b border-transparent hover:border-[#c93a3a] text-[#c93a3a] transition-all pb-1 duration-300">Listen to Guzheng</a>
+			</div>
+			<div class="mt-10 flex flex-wrap gap-8 text-xs uppercase tracking-[0.25em] text-[#A9A39A] font-sans">
+				{site.highlights.map((h) => (
+					<span>{h}</span>
+				))}
+			</div>
+			<p class="mt-6 text-sm uppercase tracking-[0.2em] text-[#A9A39A] font-sans">
+				{site.profile.appIntent}
+			</p>
 		</div>
-	</div>
-	
-	<div class="absolute right-0 top-0 bottom-0 w-1/3 hidden md:flex items-center justify-center opacity-10 pointer-events-none overflow-hidden">
-		<!-- Placeholder abstract ink element -->
-		<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-[800px] h-[800px] absolute -right-32 fill-current text-gray-900">
-			<path d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.1,-46.5C90.3,-33.8,96,-18.6,96.6,-3.2C97.1,12.2,92.5,27.8,83.9,41C75.3,54.1,62.8,64.8,49.2,71.7C35.5,78.5,20.8,81.4,5.8,79.5C-9.3,77.5,-24.1,70.7,-37.2,61.8C-50.4,52.8,-62,41.7,-69.9,28.6C-77.8,15.5,-82.1,0.5,-79.8,-13.7C-77.5,-27.9,-68.6,-41.4,-57.1,-52.1C-45.5,-62.7,-31.2,-70.6,-16.7,-74C-2.2,-77.3,12.4,-76.1,26.7,-73.2L44.7,-76.4Z" transform="translate(100 100)" />
-		</svg>
-	</div>
+		<div class="md:col-span-5">
+			<div class="aspect-[4/5] bg-[#EDE8E1] overflow-hidden shadow-lg">
+				<img src="/assets/art/placeholder-7.svg" alt="Featured work" class="object-cover w-full h-full opacity-95 hover:opacity-100 transition-opacity duration-700" />
+			</div>
+		</div>
+	</section>
+
+	<section class="mt-24 border-t border-[#EDE8E1] pt-16">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-[#6f6963]">
+			<div>
+				<p class="uppercase tracking-[0.2em] text-[#A9A39A] font-sans mb-2">Focus</p>
+				<p>Visual design, illustration, cultural narratives.</p>
+			</div>
+			<div>
+				<p class="uppercase tracking-[0.2em] text-[#A9A39A] font-sans mb-2">Mediums</p>
+				<p>Ink, digital composition, mixed media.</p>
+			</div>
+			<div>
+				<p class="uppercase tracking-[0.2em] text-[#A9A39A] font-sans mb-2">Location</p>
+				<p>{site.profile.location}</p>
+			</div>
+		</div>
+	</section>
 </Layout>

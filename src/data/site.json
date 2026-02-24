@@ -1,0 +1,97 @@
+{
+  "profile": {
+    "name": "Claire Zhang",
+    "tagline": "Modern visual design rooted in traditional Chinese aesthetics.",
+    "location": "Vancouver, BC",
+    "email": "hello@helloart.ca",
+    "school": "Semiahmoo Secondary School",
+    "appIntent": "Seeking to study Art & Design in the U.S."
+  },
+  "highlights": [
+    "3 Exhibitions",
+    "5+ Years Guzheng",
+    "10+ Performances"
+  ],
+  "artworks": [
+    {
+      "title": "Serenity in Ink",
+      "category": "Painting",
+      "year": "2025",
+      "image": "/assets/art/placeholder-1.svg",
+      "desc": "Ink studies → digital abstraction, exploring breath and rhythm."
+    },
+    {
+      "title": "Urban Echoes",
+      "category": "Design",
+      "year": "2024",
+      "image": "/assets/art/placeholder-2.svg",
+      "desc": "Geometric grid meets organic brushwork."
+    },
+    {
+      "title": "The Silent Bamboo",
+      "category": "Digital",
+      "year": "2025",
+      "image": "/assets/art/placeholder-3.svg",
+      "desc": "Negative space as a narrative device."
+    },
+    {
+      "title": "Fragments",
+      "category": "Sketch",
+      "year": "2024",
+      "image": "/assets/art/placeholder-4.svg",
+      "desc": "Light, form, and quiet tension."
+    },
+    {
+      "title": "Whispers of the Past",
+      "category": "Painting",
+      "year": "2023",
+      "image": "/assets/art/placeholder-5.svg",
+      "desc": "Traditional motifs, contemporary palette."
+    },
+    {
+      "title": "Structure & Flow",
+      "category": "Mixed Media",
+      "year": "2025",
+      "image": "/assets/art/placeholder-6.svg",
+      "desc": "From brush to vector; fluid to precise."
+    }
+  ],
+  "caseStudies": [
+    {
+      "title": "Ink Breath",
+      "summary": "A series exploring the cadence of Guzheng music through brush rhythm.",
+      "process": "Calligraphy studies → ink washes → digital layering",
+      "image": "/assets/art/placeholder-7.svg"
+    },
+    {
+      "title": "Red Seal",
+      "summary": "Reimagining the artist's seal as a modern visual identity system.",
+      "process": "Stamp research → grid system → typographic pairing",
+      "image": "/assets/art/placeholder-8.svg"
+    }
+  ],
+  "performances": [
+    {
+      "title": "Echoes of the Mountains",
+      "piece": "High Mountain, Flowing Water",
+      "duration": "5:20",
+      "date": "Dec 2025",
+      "location": "Vancouver City Hall",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    {
+      "title": "Spring Awakening",
+      "piece": "Spring on Snowy Mountain",
+      "duration": "4:10",
+      "date": "May 2024",
+      "location": "Semiahmoo Secondary",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    }
+  ],
+  "timeline": [
+    { "label": "Semiahmoo Secondary School", "year": "Present" },
+    { "label": "Selected Art Exhibition — [Placeholder]", "year": "2024" },
+    { "label": "Guzheng Soloist — [Placeholder]", "year": "2023" }
+  ],
+  "skills": ["Visual Design", "Illustration", "Cultural Narratives", "Performance Arts"]
+}
