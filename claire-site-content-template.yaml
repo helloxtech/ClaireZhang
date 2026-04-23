@@ -1,0 +1,249 @@
+site:
+  student:
+    fullName: "Claire [Last Name]"
+    displayName: "Claire"
+    school: "Semiahmoo Secondary School"
+    city: "Surrey"
+    province: "British Columbia"
+    country: "Canada"
+    classYear: "2027 # confirm"
+    headline: "Student artist and Guzheng performer"
+    shortIntro: >
+      I am a student artist and Guzheng performer interested in observation,
+      discipline, and community-centered creative work.
+    longIntro: ""
+    professionalEmail: "hello@domain.com"
+    publicLocation: "Surrey, BC"
+    heroImage:
+      src: "/images/hero/claire-portrait.jpg"
+      alt: "Portrait of Claire"
+    socialLinks: []
+    noIndexByDefault: true
+
+  theme:
+    aesthetic: "calm-editorial-gallery"
+    palette:
+      background: "#F7F4EE"
+      text: "#1F2329"
+      secondary: "#22324A"
+      accent: "#6E8B77"
+    fonts:
+      heading: "Newsreader"
+      body: "Inter"
+
+  navigation:
+    primary:
+      - { label: "Home", href: "/" }
+      - { label: "About", href: "/about" }
+      - { label: "Art", href: "/art" }
+      - { label: "Music", href: "/music" }
+      - { label: "Community", href: "/community" }
+      - { label: "Academics", href: "/academics" }
+      - { label: "Résumé", href: "/resume" }
+      - { label: "Downloads", href: "/downloads" }
+      - { label: "Contact", href: "/contact" }
+
+about:
+  summary: ""
+  howIWork:
+    art: ""
+    music: ""
+    community: ""
+  influences:
+    artists: []
+    composers: []
+    exhibitions: []
+    ideas: []
+  lookingAhead: ""
+
+artworks:
+  - id: "art-001"
+    title: ""
+    year: ""
+    medium: ""
+    dimensions: ""
+    category: "painting # painting | drawing | mixed-media | process | photography | sculpture"
+    featured: false
+    homepageFeatured: false
+    independentWork: true
+    assignmentContext: ""
+    thumbnail:
+      src: "/images/art/art-001-thumb.jpg"
+      alt: ""
+    media:
+      - src: "/images/art/art-001.jpg"
+        alt: ""
+      - src: "/images/art/art-001-detail.jpg"
+        alt: ""
+    description30Words: ""
+    shortReflection: ""
+    longReflection: ""
+    processNotes: ""
+    tags: []
+    relatedWorks: []
+    awardsOrContext: ""
+
+music:
+  instrument: "Guzheng"
+  currentLevel: "Grade 10"
+  yearsOfStudy: ""
+  teacherOrMentor: ""
+  statement: ""
+  trainingSummary: ""
+  repertoireHighlights: []
+
+performances:
+  - id: "perf-001"
+    title: ""
+    composer: ""
+    tradition: "Chinese / non-Western / traditional / contemporary"
+    instrument: "Guzheng"
+    category: "solo # solo | recital | community | festival | school"
+    featured: false
+    homepageFeatured: false
+    date: ""
+    year: ""
+    duration: ""
+    venue: ""
+    organization: ""
+    audienceContext: ""
+    description: ""
+    whatItMeant: ""
+    video:
+      platform: "youtube # youtube | vimeo | local"
+      url: ""
+      thumbnail: "/images/music/perf-001-thumb.jpg"
+      captions: ""
+    audio:
+      url: ""
+    photos: []
+    tags: []
+
+communityEvents:
+  - id: "community-001"
+    title: ""
+    date: ""
+    year: ""
+    organization: ""
+    role: ""
+    type: "performance # performance | volunteer | exhibit | leadership"
+    description: ""
+    significance: ""
+    photos: []
+
+academics:
+  interests:
+    - title: ""
+      summary: ""
+  favoriteSubjects: []
+  projects:
+    - title: ""
+      course: ""
+      year: ""
+      summary: ""
+      link: ""
+  readingAndInfluences:
+    books: []
+    artists: []
+    composers: []
+    exhibitions: []
+    questionsIAmExploring: []
+  futureStudy:
+    fieldsOfInterest: []
+    statement: ""
+
+achievements:
+  awards:
+    - title: ""
+      issuer: ""
+      year: ""
+      level: ""
+      note: ""
+  exhibitions:
+    - title: ""
+      venue: ""
+      year: ""
+      note: ""
+  musicMilestones:
+    - title: ""
+      year: ""
+      note: ""
+
+resume:
+  education:
+    - school: "Semiahmoo Secondary School"
+      location: "Surrey, BC"
+      years: ""
+      details: ""
+  sections:
+    artsTraining: []
+    selectedPerformances: []
+    visualArtProjects: []
+    communityInvolvement: []
+    leadership: []
+    awards: []
+    skills: []
+    languages: []
+
+downloads:
+  - label: "Student Résumé"
+    file: "/downloads/claire-resume.pdf"
+    description: ""
+  - label: "Art Portfolio List"
+    file: "/downloads/claire-art-portfolio-list.pdf"
+    description: ""
+  - label: "Guzheng Repertoire & Performances"
+    file: "/downloads/claire-guzheng-repertoire.pdf"
+    description: ""
+
+reviewVariants:
+  general:
+    title: "General Admissions Review"
+    emphasis: ["art", "music", "community", "academics"]
+    featuredArtworkIds: []
+    featuredPerformanceIds: []
+    featuredCommunityIds: []
+    homepageStatementOverride: ""
+    noIndex: true
+
+  art:
+    title: "Art-Focused Review"
+    emphasis: ["art", "process", "music", "community"]
+    featuredArtworkIds: []
+    featuredPerformanceIds: []
+    featuredCommunityIds: []
+    artistStatementOverride: ""
+    noIndex: true
+
+  music:
+    title: "Music-Focused Review"
+    emphasis: ["music", "community", "art", "academics"]
+    featuredArtworkIds: []
+    featuredPerformanceIds: []
+    featuredCommunityIds: []
+    musicianStatementOverride: ""
+    noIndex: true
+
+  scholarship:
+    title: "Scholarship Review"
+    emphasis: ["community", "discipline", "music", "art", "academics"]
+    featuredArtworkIds: []
+    featuredPerformanceIds: []
+    featuredCommunityIds: []
+    noIndex: true
+
+settings:
+  accessibility:
+    reducedMotion: true
+    keyboardFirst: true
+    captionsRequiredForVideo: true
+    altTextRequired: true
+  performance:
+    imageOptimization: true
+    lazyLoadBelowFold: true
+    maxInitialMediaEmbedsAboveFold: 1
+  privacy:
+    showFullAddress: false
+    showPhoneNumber: false
+    noComments: true
+    noUserAccounts: true

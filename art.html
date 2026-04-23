@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Art Portfolio — Claire Zhang</title>
+  <meta name="description" content="Visual art portfolio by Claire Zhang — oil paintings, watercolours, and charcoal drawings exploring light, observation, and quiet attention.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="site-header"><nav class="container nav-inner"><a href="index.html" class="nav-logo">Claire Zhang</a><button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><ul class="nav-links" id="nav-menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="art.html">Art</a></li><li><a href="music.html">Music</a></li><li><a href="community.html">Community</a></li><li><a href="academics.html">Academics</a></li><li><a href="resume.html">Résumé</a></li><li><a href="downloads.html">Downloads</a></li><li><a href="contact.html">Contact</a></li></ul></nav></header>
+
+  <main id="main">
+    <section class="page-header">
+      <div class="container">
+        <span class="section-label fade-in">Visual Art</span>
+        <h1 class="fade-in">Art Portfolio</h1>
+        <p class="lead fade-in">
+          I work primarily in oil, watercolour, and charcoal. My paintings and drawings explore how light changes ordinary subjects — still lifes, landscapes, and the human face. I am drawn to close observation: spending time with a subject until I notice details I would have missed at a glance. Each piece here represents something I learned about seeing, patience, or material.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="section">
+      <div class="container">
+        <div class="gallery-filters fade-in">
+          <button class="filter-btn active" data-filter="all">All Work</button>
+          <button class="filter-btn" data-filter="painting">Painting</button>
+          <button class="filter-btn" data-filter="drawing">Drawing</button>
+          <button class="filter-btn" data-filter="mixed-media">Mixed Media</button>
+          <button class="filter-btn" data-filter="process">Process</button>
+        </div>
+
+        <div class="gallery-grid">
+
+          <!-- Artwork 1 -->
+          <article class="card gallery-item fade-in" data-category="painting"
+            data-modal='{"title":"Afternoon Light, Studio Table","year":"2025","medium":"Oil on Canvas","dimensions":"24 × 30 in","category":"Painting","image":"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=900&h=700&fit=crop","alt":"Oil painting of a still life with warm afternoon light","description":"A study of how warm light transforms familiar objects. The ceramic vases and dried flowers were arranged on my studio table over several sessions, and each day the light changed the colour relationships.","reflection":"This painting taught me that shadows are never just dark — they carry the reflected colour of everything around them."}' style="cursor:pointer;">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=450&fit=crop" alt="Oil painting of a still life with warm afternoon light on ceramic vases and dried flowers" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-meta">Oil on Canvas · 24 × 30 in · 2025</span>
+              <h3 class="card-title">Afternoon Light, Studio Table</h3>
+              <p class="card-desc">A study of how warm light transforms familiar objects and how shadows carry reflected colour.</p>
+            </div>
+          </article>
+
+          <!-- Artwork 2 -->
+          <article class="card gallery-item fade-in" data-category="painting"
+            data-modal='{"title":"Morning Mist, Boundary Bay","year":"2025","medium":"Watercolour on Paper","dimensions":"15 × 20 in","category":"Painting","image":"https://images.unsplash.com/photo-1549490349-8643362247b5?w=900&h=700&fit=crop","alt":"Watercolour landscape of a misty lakeside at dawn","description":"This painting grew from an early morning walk along Boundary Bay. I was interested in how fog simplifies a landscape into just a few tonal layers, reducing detail until only the essential shapes remain.","reflection":"Working with watercolour on this piece forced me to commit — every mark stays. It taught me to plan more and react less."}' style="cursor:pointer;">
+            <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?w=600&h=450&fit=crop" alt="Watercolour landscape of a misty Pacific Northwest lakeside at dawn" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-meta">Watercolour on Paper · 15 × 20 in · 2025</span>
+              <h3 class="card-title">Morning Mist, Boundary Bay</h3>
+              <p class="card-desc">How fog simplifies a landscape into essential shapes and tonal layers.</p>
+            </div>
+          </article>
+
+          <!-- Artwork 3 -->
+          <article class="card gallery-item fade-in" data-category="drawing"
+            data-modal='{"title":"Quiet Reflection","year":"2024","medium":"Charcoal on Paper","dimensions":"18 × 24 in","category":"Drawing","image":"https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=900&h=700&fit=crop","alt":"Charcoal portrait of an elderly person","description":"Drawing someone older teaches patience. Every line in a face carries time, and I wanted the charcoal to hold that weight without overworking the surface.","reflection":"This was the first drawing where I felt I was drawing a person, not just a face. It changed how I approach portraiture."}' style="cursor:pointer;">
+            <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600&h=450&fit=crop" alt="Charcoal portrait drawing of an elderly person with a thoughtful expression" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-meta">Charcoal on Paper · 18 × 24 in · 2024</span>
+              <h3 class="card-title">Quiet Reflection</h3>
+              <p class="card-desc">A portrait study exploring how time leaves marks on a face — and how charcoal can hold that weight.</p>
+            </div>
+          </article>
+
+          <!-- Artwork 4 -->
+          <article class="card gallery-item fade-in" data-category="painting"
+            data-modal='{"title":"Garden Wall in October","year":"2024","medium":"Oil on Canvas","dimensions":"20 × 24 in","category":"Painting","image":"https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=900&h=700&fit=crop","alt":"Oil painting of a garden wall with autumn ivy","description":"I painted this from observation over three afternoons. The ivy was changing colour daily, and I had to decide which version of the wall to commit to.","reflection":"This piece taught me that painting outdoors means accepting impermanence — the subject will not wait for you."}' style="cursor:pointer;">
+            <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&h=450&fit=crop" alt="Oil painting of a garden wall with autumn ivy in changing light" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-meta">Oil on Canvas · 20 × 24 in · 2024</span>
+              <h3 class="card-title">Garden Wall in October</h3>
+              <p class="card-desc">Painting outdoors means accepting impermanence — the subject changes even as you work.</p>
+            </div>
+          </article>
+
+          <!-- Artwork 5 -->
+          <article class="card gallery-item fade-in" data-category="drawing"
+            data-modal='{"title":"Hands Study","year":"2024","medium":"Graphite on Paper","dimensions":"11 × 14 in","category":"Drawing","image":"https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&h=700&fit=crop","alt":"Graphite studies of hands in various positions","description":"A page of hand studies drawn from life. Hands are one of the hardest subjects — they move constantly, and every angle changes the proportions completely.","reflection":"Drawing hands over and over taught me that difficulty is not a reason to avoid a subject. It is a reason to return to it."}' style="cursor:pointer;">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=450&fit=crop" alt="Graphite studies of hands in various positions and angles" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-meta">Graphite on Paper · 11 × 14 in · 2024</span>
+              <h3 class="card-title">Hands Study</h3>
+              <p class="card-desc">Drawing hands teaches you that difficulty is not a reason to avoid a subject — it is a reason to return.</p>
+            </div>
+          </article>
+
+          <!-- Artwork 6 -->
+          <article class="card gallery-item fade-in" data-category="mixed-media"
+            data-modal='{"title":"Layered Memory","year":"2025","medium":"Mixed Media on Board","dimensions":"16 × 20 in","category":"Mixed Media","image":"https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=900&h=700&fit=crop","alt":"Mixed media artwork with layered paper, paint, and ink","description":"An experimental piece combining torn paper, acrylic, and ink washes. I was interested in how layering materials creates visual depth that flat painting alone cannot achieve.","reflection":"Working with mixed media freed me from the pressure of making something \"correct\" — it was more about finding something honest in the process."}' style="cursor:pointer;">
+            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=450&fit=crop" alt="Mixed media artwork with layered paper, paint, and ink creating textural depth" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-meta">Mixed Media on Board · 16 × 20 in · 2025</span>
+              <h3 class="card-title">Layered Memory</h3>
+              <p class="card-desc">Exploring visual depth through torn paper, acrylic, and ink washes — an experiment in process over perfection.</p>
+            </div>
+          </article>
+
+          <!-- Artwork 7 - Process -->
+          <article class="card gallery-item fade-in" data-category="process"
+            data-modal='{"title":"Sketchbook Pages — Light Studies","year":"2024–2025","medium":"Graphite and Ink","dimensions":"Various","category":"Process","image":"https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=900&h=700&fit=crop","alt":"Open sketchbook pages with quick light and shadow studies","description":"Selected pages from my daily sketchbook practice. These quick studies help me understand how light behaves before I commit to a larger painting.","reflection":"The sketchbook is where I think out loud. Not everything here is good, but that is exactly the point."}' style="cursor:pointer;">
+            <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=600&h=450&fit=crop" alt="Open sketchbook pages with quick studies of light and shadow" class="card-image" loading="lazy">
+            <div class="card-body">
+              <span class="card-meta">Graphite &amp; Ink · 2024–2025</span>
+              <h3 class="card-title">Sketchbook Pages — Light Studies</h3>
+              <p class="card-desc">Quick daily studies to understand how light behaves before committing to a larger work.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-overlay" role="dialog" aria-modal="true" aria-label="Artwork detail">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-content">
+      <img class="modal-image" src="" alt="">
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer"><div class="container footer-inner"><p class="footer-text">&copy; 2026 Claire Zhang · Surrey, BC</p><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="art.html">Art</a></li><li><a href="music.html">Music</a></li><li><a href="contact.html">Contact</a></li></ul></div></footer>
+  <script src="main.js"></script>
+</body>
+</html>
