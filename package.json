@@ -1,0 +1,7 @@
+{
+  "name": "claire-zhang-site",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}
