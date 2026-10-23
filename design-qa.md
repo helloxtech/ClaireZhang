@@ -1,53 +1,46 @@
-# Design QA · 2026-10-23
+# Design QA · v2 · 2026-10-23
 
-**Final result: passed**
+**Result: local visual and interaction checks passed for the design concept; user acceptance pending.**
 
-Acceptance is for the implemented design draft. Original student artwork and Claire-approved writing remain required before admissions use.
+V1 was rejected by the user for its visual quality. This review supersedes its earlier acceptance claim. The requested outcome is a distinctive art/design/creative-technology portfolio experience, with authentic content still to be supplied—not merely nine working pages.
+
+## Design acceptance criteria
+
+1. The opening establishes a clear visual idea and exposes three distinct creative directions before the recital.
+2. Images form a usable browsing surface: whole-card links, obvious opening affordances, and matching project destinations.
+3. Work develops each direction with a strong image and a short question/story, without leaking preparation checklists into the primary journey.
+4. Genuine music evidence supports the creative identity. No proposed direction, generated image, or draft voice is presented as completed student work.
+5. The layout remains readable and navigable on mobile, including clear concept-image disclosure.
 
 ## Comparison evidence
 
-- Source visual truth: `/Users/forrest/.codex/generated_images/01a16922-7c0a-7772-95e9-9fb64777d0cd/exec-5a3d0100-5eb1-4aac-83f5-7005559adb1f.png` (1038 × 1515 px).
-- Browser implementation: `/Users/forrest/.codex/visualizations/2026/10/23/01a16922-7c0a-7772-95e9-9fb64777d0cd/home-desktop-final.png` (1040 × 2128 px full page; CSS viewport 1040 × 1513, 1 screenshot px per CSS px).
-- State: home, menu closed, light theme, fonts loaded. Source and final capture were opened together in one comparison input. No pixel-diff precision is claimed: the 2 px width difference is negligible, while the taller page is intentional after the user clarified art/interaction targets.
-- Full composition and readable typography/buttons were checked together; a separate focused crop was unnecessary because these details were legible at this capture size.
-- Additional browser captures alongside the implementation image: `home-mobile-final.png`, `art-mobile-final.png`, `art-desktop-final.png`, and `resume-pdf-page1.png`. Local evidence is intentionally not part of the deployed site.
+- Selected source: **Sensory Field Notes**, `exec-6cc6e90d-1db1-4c3d-bb0b-09c8ad19aca6.png`, 1190 × 1322, under the current task's generated-images directory.
+- Final capture: `v2-home-desktop-final.png`, 1190 × 1559, at CSS viewport 1190 × 1322, light theme, menu closed, fonts loaded.
+- Source and final browser image were opened **together** in the same comparison input after the last typography change. Composition and readable type/controls were checked together. This is an interpretation of the concept, not a pixel-perfect reproduction.
+- Supporting captures: `v2-home-mobile-final.png` (390 px wide), `v2-work-desktop-final.png`, `v2-work-mobile-anchor.png`, and `v2-resume.png` / `v2-resume.pdf`.
+- Local evidence directory: `/Users/forrest/.codex/visualizations/2026/10/23/01a16922-7c0a-7772-95e9-9fb64777d0cd/`. Selected mock directory: `/Users/forrest/.codex/generated_images/01a16922-7c0a-7772-95e9-9fb64777d0cd/`. These local evidence files are not deployed website assets.
 
-## Findings and five fidelity surfaces
+## Five fidelity surfaces
 
-No actionable P0/P1/P2 issue remains.
+- **Typography:** oversized navy Inter headline, clear sans project titles, restrained Newsreader italic note. Hero letter spacing was loosened after screenshot comparison showed crowding; desktop and mobile were recaptured. Self-hosted font loading verified.
+- **Layout and spacing:** three edge-to-edge image columns on desktop, stacked cards on mobile; small portrait and three subject links above, compact music evidence below. Real metadata, explicit card actions and footer make the page taller than the mock. All nine routes preserve a consistent navigation system.
+- **Color:** ivory `#fff8ef`, navy `#111a3a`, cobalt accent `#3454f5`, with three distinct image palettes. White-on-navy AI labels are intentionally stronger than the mock's small gray captions.
+- **Images:** three separately generated, optimized 960 × 1200 WebP concept boards (~500 KB total), with no student-authorship claim. The gesture image uses guzheng-like horizontal strings/bridges. The genuine repository portrait and public YCMA poster replace generated alternate likeness/music images. Decorative simulated brush marks and handwriting are intentionally omitted; no CSS/SVG imitation was introduced.
+- **Copy:** compact creative premise → visual directions → proposed case stories → sourced music. Preparation instructions live in Materials/About. Source links and time-sensitive recital wording remain; no unverified achievements, education, contact details, or completed installations are asserted.
 
-- **Typography:** self-hosted Newsreader regular/italic reproduces the editorial display character; Inter provides readable body and controls. Hero line wrapping, type hierarchy and mobile scaling were visually checked. Browser reports fonts loaded. The design is a faithful interpretation, not an exact recreation of generated letterforms.
-- **Spacing/layout:** portrait/headline balance, ruled identity strip, open three-column grid, recital feature, olive closing band and compact footer retain the selected direction. Work now precedes music; four primary links replace five. Both deviations implement the user's subsequently supplied application direction.
-- **Colors/tokens:** warm paper `#f7f4ee`, dark green `#19352e`, olive `#565f40`, body `#39433f`, muted `#60675e`, rules `#b9bcb1`. Visual hierarchy and foreground contrast inspected; no formal accessibility certification asserted.
-- **Images:** real repository portrait and original public recital poster replace the generated concept's reproduced imagery. Crops preserve subjects; the poster remains legible when opened. No fabricated artwork or generated likeness is shipped.
-- **Copy/content:** primary CTA enters Work; proposed studies are clearly labelled; verifiable recital evidence is secondary and source-linked. Unconfirmed school/achievement/contact statements were removed. Draft voice is disclosed, and a quotation-style ambiguity on About was removed after editorial review.
+## Review and fixes
 
-## Comparison history
+The visual reviewer found v2 materially stronger than v1 and retained its hierarchy, palette, and project sequence. The visitor-journey/content reviewer found no remaining blocking copy or navigation issue in the concept. Final integration addressed two visual findings: each concept now has a high-contrast label inside its image, and each linked card has a visible `Open direction` cue. A proposed decorative flourish was deliberately not adopted because it did not represent Claire's real authorship. Main-agent comparison additionally corrected the overly tight hero letter spacing.
 
-1. Initial browser implementation had a smaller hero and looser header than the concept. Adjusted desktop headline size, header/hero spacing and portrait proportion. Captured at the intended desktop width after the change.
-2. The user supplied a more specific art/design/technology target direction. This changed the intended hierarchy: Work CTA and a proposed-studies section move before the recital, the identity strip now includes interaction, and public practice moves to the footer. These are accepted requirement changes, not accidental design drift.
-3. Source concept and final `home-desktop-final.png` compared together; visual reviewer independently inspected the final image and accepted the draft hierarchy and execution. Admissions/content reviewer separately accepted the prospective wording. No further visual fixes required.
+## Focused verification
 
-## Interaction verification and residual gaps
+- Build, JavaScript syntax, whitespace/diff checks, and all local HTML links/assets/fragments passed.
+- All nine routes at 390 px: one H1, three primary links, no horizontal overflow or broken loaded images; no console warnings/errors observed.
+- Home at 320 px: no horizontal overflow. Mobile lazy-loaded recital poster confirmed loaded when inspected.
+- Menu open, Escape close and focus restoration passed. Whole-card navigation reached `art.html#hands`; after scrolling settled the target was visible near the viewport top.
+- With JavaScript disabled, all primary navigation remains visible and the inactive menu button is hidden.
+- Résumé prints to one A4 page; output visually inspected. PDF rasterizer reported glyph-bound warnings, but visible content and Chinese programme text rendered intact.
 
-- Nine routes at 390 px: one H1 each, no broken images, no horizontal overflow, four primary links.
-- Home at 320 px: no horizontal overflow. Desktop home and Work page visually inspected.
-- Menu opens; Escape closes it and restores button focus. Primary Work CTA navigates to `art.html`.
-- With JavaScript disabled, mobile links remain visible and the menu button stays hidden.
-- Console warnings/errors: none observed. Local links and fragments checked against files/IDs.
-- Résumé: actual browser PDF output, one A4 page, visually inspected; draft labels retained.
-- Safari/Firefox and physical-device testing were not performed. Missing original work is an editorial readiness gap, not concealed by this design acceptance.
+## Remaining limits
 
-## Development preview verification
-
-The candidate is published at https://codex-admissions-redesign.claire-zhang.pages.dev/ (implementation commit `deff992e3f509aef70e5e8f9b8b7058341e76576`). Browser verification confirmed the home, loaded images, primary Work navigation, three proposed studies, and no console warnings/errors. Final deployed capture: `/Users/forrest/.codex/visualizations/2026/10/23/01a16922-7c0a-7772-95e9-9fb64777d0cd/deployed-home.png`. Production was not deployed.
-
-## Implementation checklist
-
-- [x] Compare selected concept and rendered home together.
-- [x] Check the five fidelity surfaces and classify intentional changes.
-- [x] Verify mobile navigation, core links, no-JS fallback and print layout.
-- [x] Obtain visual and admissions-content review of the final direction.
-- [ ] Replace proposed studies and personal draft voice with Claire's verified material before production/admissions use.
-
-final result: passed
+This is a website design preview. Replace concept boards with Claire's original work and process, confirm the personal voice and metadata, and obtain family acceptance before application or production use. No cross-browser/device-wide or formal accessibility certification is claimed. Publishing this branch must remain a development-preview update; merging to main would change both public domains.
