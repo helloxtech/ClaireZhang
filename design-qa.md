@@ -4,6 +4,23 @@
 
 V1 was rejected by the user for its visual quality. This review supersedes its earlier acceptance claim. The requested outcome is a distinctive art/design/creative-technology portfolio experience, with authentic content still to be supplied—not merely nine working pages.
 
+## Follow-up audit: identity and interaction
+
+This user-requested review is grounded in new captures, not the earlier acceptance verdict. Browser path: Codex in-app browser through `cua_repl`; the separate Browser plugin is not installed. Existing UI and code are the design reference; no new visual direction or generated assets were introduced.
+
+| Step                         | Finding in current v2                                                             | Refinement and observed result                                                                                                                                             |
+| ---------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Home → choose a direction | The aesthetic did not explain why these questions belong to Claire.               | Genuine portrait now sits beside the nine-year guzheng foundation; each card previews its question. Links reach the matching stories.                                      |
+| 2. Light                     | Attractive but generic observation proposal.                                      | Repeated musical attention becomes repeated observation of one interior; the story names the experiment and artistic choice.                                               |
+| 3. Hands                     | The source of the gestures was implicit; mobile arrival began with a large image. | Explicit guzheng gestures and a tension/release question; story-first mobile order and return navigation verified.                                                         |
+| 4. Listening → try a gesture | No definite human input or visible response.                                      | Native Begin/Release/Reset controls demonstrate duration-to-image reveal. Manual early release, four-second completion, keyboard activation and reset during a run passed. |
+
+Current-run before captures: `review-01-home-before.png`, `review-02-projects-before.png`. Final captures: `refined-01-home-final.png`, `refined-02-work-final.png`, `refined-04-demo-mobile.png`, `refined-05-home-mobile.png`, `refined-06-hands-mobile.png` in the same evidence directory below. Before/after Home captures were inspected together at matching 1190 px width. The intended changes are the personal foundation and project questions; palette, primary layout, imagery and hero type remain coherent with v2.
+
+Native controls have visible labels and 48 px height; 390/320 px Work checks found no overflow. Reduced-motion mode holds the image still until release while duration feedback continues. With scripts disabled the controls stay hidden, the full static image and explanation remain, and navigation remains available. Relevant console logs were empty. Image provenance is visible within every card/detail/demo image; About names the AI-assisted website demo. No claim of Claire's technical authorship, actual user research, finished artworks, or admissions readiness is made.
+
+One final content finding was corrected in About: the source announces the solo graduation recital and identifies the teacher; it does not establish event completion or nine years with that teacher. The visual and narrative reviewers reported no other blockers. Formal assistive-technology and cross-browser testing were not performed. User acceptance is still required; visual polish cannot substitute for original work.
+
 ## Design acceptance criteria
 
 1. The opening establishes a clear visual idea and exposes three distinct creative directions before the recital.
