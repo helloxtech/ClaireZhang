@@ -1,86 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>About — Claire Zhang</title>
-  <meta name="description" content="Learn about Claire Zhang — a student artist and Guzheng performer from Surrey, BC. Her story, creative practice, influences, and future goals.">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  <header class="site-header"><nav class="container nav-inner"><a href="index.html" class="nav-logo">Claire Zhang</a><button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><ul class="nav-links" id="nav-menu"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="art.html">Art</a></li><li><a href="music.html">Music</a></li><li><a href="community.html">Community</a></li><li><a href="academics.html">Academics</a></li><li><a href="resume.html">Résumé</a></li><li><a href="downloads.html">Downloads</a></li><li><a href="contact.html">Contact</a></li></ul></nav></header>
-
-  <main id="main">
-    <section class="page-header">
-      <div class="container">
-        <span class="section-label fade-in">About</span>
-        <h1 class="fade-in">Who I Am</h1>
-        <p class="lead fade-in">
-          I am a Grade 11 student at Semiahmoo Secondary School in Surrey, British Columbia.
-          I have been painting since middle school and studying Guzheng since I was eight years old.
-          Both practices have taught me patience, close observation, and the value of sharing creative work
-          with others. I am drawn to art and music not because they are easy, but because they ask me
-          to pay attention in ways that nothing else does.
-        </p>
-      </div>
-    </section>
-
-    <!-- How I Work -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title fade-in">How I Work</h2>
-        <div class="card-grid">
-          <div class="interest-card fade-in">
-            <h4>In Art</h4>
-            <p>I work mostly in oil and watercolour, and sometimes charcoal for studies. I am interested in light — how it changes the colour of ordinary things and how a shadow can tell you as much as the object itself. I paint slowly, often returning to the same subject until I understand it better.</p>
-          </div>
-          <div class="interest-card fade-in">
-            <h4>In Music</h4>
-            <p>Guzheng requires a combination of technical precision and emotional expression. I study repertoire from both the traditional Chinese canon and contemporary works. Playing an instrument with a 2,500-year history gives me a sense of continuity — I am part of something much larger than myself.</p>
-          </div>
-          <div class="interest-card fade-in">
-            <h4>In Community</h4>
-            <p>I believe that creative work becomes more meaningful when it is shared. I have performed Guzheng at cultural events, senior centres, and school showcases. Each audience teaches me something different about what music can do for people.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Influences -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title fade-in">What Influences Me</h2>
-        <p class="section-intro fade-in">A few artists, ideas, and experiences that have shaped how I see and think.</p>
-        <ul class="influence-list fade-in">
-          <li class="influence-item"><span class="label">Artist</span>Vilhelm Hammershøi — his quiet interiors taught me that simplicity can hold immense depth</li>
-          <li class="influence-item"><span class="label">Exhibition</span>The Vancouver Art Gallery's Emily Carr collection — seeing how place shapes practice</li>
-          <li class="influence-item"><span class="label">Musical Tradition</span>Classical Guzheng repertoire — pieces like <em>High Mountains and Flowing Water</em> connect technique with philosophy</li>
-          <li class="influence-item"><span class="label">Idea</span>The concept of "slow looking" — spending more time with fewer things to see them more clearly</li>
-          <li class="influence-item"><span class="label">Mentor</span>My Guzheng teacher, who showed me that discipline and expression are not opposites</li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Claire Zhang’s visual art, interaction, sound, and guzheng practice."
+    />
+    <title>About — Claire Zhang</title>
+    <link rel="canonical" href="https://clairezhang.ca/about.html" />
+    <meta name="theme-color" content="#fff8ef" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="About — Claire Zhang" />
+    <meta property="og:url" content="https://clairezhang.ca/about" />
+    <meta
+      property="og:image"
+      content="https://clairezhang.ca/images/hero/claire-portrait.png"
+    />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <nav class="wrap nav" aria-label="Main navigation">
+        <a class="wordmark" href="index.html">Claire Zhang</a>
+        <button
+          class="menu-button"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          type="button"
+        >
+          Menu
+        </button>
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="art.html">Work</a></li>
+          <li><a href="music.html">Music</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
         </ul>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="wrap">
+        <section class="intro-layout">
+          <div>
+            <div class="page-head">
+              <span class="kicker">About</span>
+              <h1>Claire Zhang</h1>
+              <p class="lead">
+                A student exploring visual art, interaction, and sound—rooted in
+                a sustained practice of guzheng.
+              </p>
+            </div>
+          </div>
+          <figure>
+            <img
+              src="images/hero/claire-portrait.png"
+              width="832"
+              height="1248"
+              alt="Claire Zhang"
+              loading="lazy"
+            />
+            <figcaption>Claire Zhang</figcaption>
+          </figure>
+        </section>
+        <section class="section section-heading">
+          <div>
+            <span class="kicker">A practice built over time</span>
+            <h2>Attention before<br />easy answers.</h2>
+          </div>
+          <div class="prose">
+            <p>
+              Claire is drawn to practices that reward patience: listening
+              closely, returning to a difficult passage, and noticing what
+              changes when she looks again.
+            </p>
+            <p>
+              Her interest in visual art and interaction begins with attention
+              to an image, a material, a gesture, or a pause. Music offers one
+              way to understand how a small change can reshape a whole phrase.
+            </p>
+          </div>
+        </section>
+        <section class="section section-heading">
+          <div>
+            <span class="kicker">An established part of the story</span>
+            <h2>Nine years<br />with guzheng.</h2>
+          </div>
+          <div class="prose">
+            <p>
+              The Academy’s announcement records Claire’s nine years of guzheng
+              study and identifies Chen Wenying as her teacher. It announces a
+              solo graduation guzheng recital at Canada YC Music Academy in
+              Richmond on October 25, 2026.
+            </p>
+            <a class="text-link" href="music.html">Explore the music</a>
+          </div>
+        </section>
+        <section class="section section-heading">
+          <div>
+            <span class="kicker">Art, design &amp; technology</span>
+            <h2>Room to make.<br />Room to question.</h2>
+          </div>
+          <div class="prose">
+            <p>
+              Claire is interested in places where art, design, and technology
+              meet: observation can lead to materials, images can invite a
+              response, and a visitor can become part of a work.
+            </p>
+            <p>
+              She is building a practice of close looking, revision, and
+              experimentation across visual art, sound, and interaction.
+            </p>
+            <a class="text-link" href="academics.html"
+              >Questions I want to keep following</a
+            >
+          </div>
+        </section>
+        <section class="section section-heading" id="draft-note">
+          <div>
+            <span class="kicker">About this site</span>
+            <h2>Experience,<br />site studies, and sources.</h2>
+          </div>
+          <div class="prose">
+            <p>
+              Claire’s documented experience on this site is her guzheng study
+              and the solo graduation recital announced by the
+              <a
+                href="https://ycma.ca/news/claire-zhang-graduation-recital-2026/"
+                >Canada YC Music Academy</a
+              >. The announcement identifies nine years of study, names Chen
+              Wenying as her teacher, and lists the 25 October 2026 recital. The
+              portrait comes from Claire’s original site; the recital poster
+              comes from the Academy’s public announcement.
+            </p>
+            <p>
+              The illustrated studies on Home and Work are AI-assisted visual
+              directions made for this website. They are not Claire’s artwork or
+              a record of her process. The interactive listening instrument is
+              also a site-made, AI-assisted study. It uses a credited CC0
+              guzheng sample processed in the browser; the recording is not
+              Claire’s.
+            </p>
+            <p>
+              The site brings these distinct sources together to show a possible
+              connection between Claire’s sustained music practice and her
+              interest in visual art, interaction, and sound.
+            </p>
+          </div>
+        </section>
       </div>
-    </section>
-
-    <!-- Looking Ahead -->
-    <section class="section">
-      <div class="container">
-        <div class="reflection-block fade-in">
-          <p>
-            At university, I want to keep developing both my visual art and my musicianship.
-            I am interested in how art and music overlap — in the way both require patience,
-            observation, and the willingness to sit with something until it reveals itself.
-            I do not know exactly what shape my studies will take, but I know I want to be
-            in a place that values careful thinking and creative discipline equally.
-          </p>
-          <span class="attribution">— Looking Ahead</span>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div class="footer-inner">
+          <a class="wordmark" href="index.html">Claire Zhang</a>
+          <ul class="footer-links">
+            <li><a href="resume.html">Profile</a></li>
+            <li><a href="academics.html">Notes</a></li>
+            <li><a href="community.html">Practice</a></li>
+            <li><a href="downloads.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
         </div>
+        <p class="footer-note">Visual art · Interaction · Sound</p>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer"><div class="container footer-inner"><p class="footer-text">&copy; 2026 Claire Zhang · Surrey, BC</p><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="art.html">Art</a></li><li><a href="music.html">Music</a></li><li><a href="contact.html">Contact</a></li></ul></div></footer>
-  <script src="main.js"></script>
-</body>
+    </footer>
+  </body>
 </html>
