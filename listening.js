@@ -3,7 +3,7 @@
   const study = document.querySelector("[data-interaction-study]");
   if (!study) return;
   const stage = study.querySelector(".instrument-stage");
-  const canvas = study.querySelector("canvas");
+  const canvas = stage.querySelector("canvas");
   const paint = canvas.getContext("2d");
   const toggle = study.querySelector("#sound-toggle");
   const volume = study.querySelector("#sound-volume");
@@ -12,18 +12,28 @@
   const noteReading = study.querySelector("#note-reading");
   const buttons = [...study.querySelectorAll("[data-note]")];
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-  const names = ["D", "E", "F♯", "A", "B"];
-  const frequencies = [146.8324, 164.8138, 184.9972, 220, 246.9417];
-  const colours = ["#c4c8ff", "#abbfff", "#e5c3ff", "#f3d3a4", "#f7dcae"];
+  const noteNames = ["D", "E", "F♯", "A", "B"];
+  const octaveColours = ["#8fa5ff", "#b8a2ff", "#dfb2ff", "#f0c49b", "#ffe0ae"];
+  const frequencies = Array.from({ length: 21 }, (_, index) => {
+    const octave = 2 + Math.floor(index / 5);
+    const degree = index === 20 ? 0 : index % 5;
+    const semitones =
+      { D: -7, E: -5, "F♯": -3, A: 0, B: 2 }[noteNames[degree]] +
+      (octave - 4) * 12;
+    return 440 * Math.pow(2, semitones / 12);
+  });
+  const note = (index) => {
+    const octave = index === 20 ? 6 : 2 + Math.floor(index / 5);
+    return `${noteNames[index === 20 ? 0 : index % 5]}${octave}`;
+  };
+  const stringNumber = (index) => 21 - index;
   let context, sample, master, bus, reverb, analyser;
   let enabled = false,
     loading = false,
     frame = 0,
     width = 0,
     height = 0;
-  let rowCenters = [],
-    stringStart = 0,
-    stringEnd = 0;
+  let geometry = { top: 0, bottom: 0, left: 0, right: 0 };
   let pointer = null,
     lastVoice = null,
     quietTimer = 0,
@@ -31,20 +41,16 @@
   let traces = [],
     voices = [];
   const samples = new Float32Array(256);
+  const maxVoices = 32;
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const setFeedback = (text) => {
     feedback.textContent = text;
   };
+  const stringY = (index) =>
+    geometry.top + ((geometry.bottom - geometry.top) * index) / 20;
+  const colour = (index) => octaveColours[Math.min(4, Math.floor(index / 5))];
+  const label = (index) => `String ${stringNumber(index)} · ${note(index)}`;
 
-  // Canvas and pointer hit-testing use the live button rows, so their visual and interactive strings cannot drift apart.
-  const stringY = (index) => rowCenters[index] ?? height * (0.262 + index * 0.124);
-  const visualStringY = (index) => {
-    const position = (index / 20) * 4;
-    const lower = Math.floor(position);
-    const upper = Math.min(4, Math.ceil(position));
-    const amount = position - lower;
-    return stringY(lower) + (stringY(upper) - stringY(lower)) * amount;
-  };
   function drawBridge(index, x, y) {
     const angle = (-0.13 + index * 0.013) * Math.PI;
     const scale = clamp(width / 700, 0.48, 1);
@@ -56,20 +62,15 @@
     paint.shadowBlur = 5;
     paint.shadowOffsetY = 4;
     paint.fillStyle = "#3a1d18";
-    paint.beginPath();
-    paint.moveTo(-8, 12);
-    paint.lineTo(-2, 2);
-    paint.lineTo(0, 2);
-    paint.lineTo(-1, 12);
-    paint.closePath();
-    paint.fill();
-    paint.beginPath();
-    paint.moveTo(8, 12);
-    paint.lineTo(2, 2);
-    paint.lineTo(0, 2);
-    paint.lineTo(1, 12);
-    paint.closePath();
-    paint.fill();
+    for (const side of [-1, 1]) {
+      paint.beginPath();
+      paint.moveTo(side * 8, 12);
+      paint.lineTo(side * 2, 2);
+      paint.lineTo(0, 2);
+      paint.lineTo(side, 12);
+      paint.closePath();
+      paint.fill();
+    }
     paint.shadowColor = "transparent";
     paint.fillStyle = "#6a3925";
     paint.beginPath();
@@ -116,73 +117,62 @@
       "--resonance",
       String(Math.min(0.44, 0.12 + rms * 1.8)),
     );
-    const leftEnd = stringStart || width * 0.13;
-    const rightEnd = stringEnd || width * 0.87;
     for (let i = 0; i < 21; i++) {
-      const y = visualStringY(i);
-      const playable = i % 5 === 0;
-      paint.strokeStyle = playable ? "#fff2cf" : "#e9c98b";
-      paint.lineWidth = playable ? 1.05 : 0.48 + (i % 3) * 0.08;
-      paint.globalAlpha = playable ? 0.82 : 0.3;
-      paint.beginPath();
-      paint.moveTo(leftEnd, y);
-      paint.lineTo(rightEnd, y);
-      paint.stroke();
-    }
-    for (let i = 0; i < 5; i++) {
       const y = stringY(i);
-      const recent = traces.filter((trace) => trace.index === i);
-      const active = recent[recent.length - 1];
+      const recent = traces.filter(
+        (trace) => trace.index === i && trace.time <= now,
+      );
+      const active = recent.at(-1);
       const age = active ? Math.max(0, (now - active.time) / 1000) : 10;
-      const energy = active ? Math.exp(-age * 0.9) * active.strength : 0;
+      const energy = active ? Math.exp(-age * 0.88) * active.strength : 0;
       const bend = active ? active.bend : 0;
-      paint.strokeStyle = colours[i];
-      paint.lineWidth = 1 + energy * 1.4;
-      paint.globalAlpha = 0.3 + energy * 0.6;
+      paint.strokeStyle = energy ? colour(i) : "#e9c98b";
+      paint.lineWidth = 0.45 + Math.min(1.8, energy * 1.5);
+      paint.globalAlpha = energy ? 0.35 + energy * 0.65 : 0.31;
       paint.beginPath();
-      for (let x = leftEnd; x <= rightEnd; x += 3) {
-        const t = (x - leftEnd) / Math.max(1, rightEnd - leftEnd);
+      for (let x = geometry.left; x <= geometry.right; x += 3) {
+        const t =
+          (x - geometry.left) / Math.max(1, geometry.right - geometry.left);
         const wave = reduced.matches
           ? 0
-          : Math.sin(t * Math.PI * (6 + i) - age * 12) * energy * 8;
-        const offset = Math.sin(t * Math.PI) * (bend * 17 + wave);
-        if (x === leftEnd) paint.moveTo(x, y + offset);
+          : Math.sin(t * Math.PI * (5 + i * 0.42) - age * (7 + i * 0.16)) *
+            energy *
+            (4 + Math.min(7, i * 0.28));
+        const offset = Math.sin(t * Math.PI) * (bend * 15 + wave);
+        if (x === geometry.left) paint.moveTo(x, y + offset);
         else paint.lineTo(x, y + offset);
       }
       paint.stroke();
     }
-    if (!reduced.matches)
-      for (const trace of traces) {
-        const age = Math.max(0, (now - trace.time) / 1000);
-        const fade = Math.exp(-age * 0.85) * trace.strength;
-        const x = width * trace.x;
-        const y = stringY(trace.index);
-        paint.strokeStyle = colours[trace.index];
-        for (let strand = 0; strand < 6; strand++) {
-          paint.globalAlpha = fade * (0.34 - strand * 0.035);
-          paint.lineWidth = strand === 0 ? 1.6 : 0.7;
-          paint.beginPath();
-          const spread = 12 + age * 58 + strand * 9;
-          paint.ellipse(
-            x,
-            y + trace.bend * 12,
-            6 + spread * 0.3,
-            spread * (1 + Math.abs(trace.bend) * 0.15),
-            0.35 + trace.bend * 0.2,
-            0,
-            Math.PI * 2,
-          );
-          paint.stroke();
-        }
+    for (const trace of traces) {
+      if (now < trace.time || reduced.matches) continue;
+      const age = Math.max(0, (now - trace.time) / 1000);
+      const fade = Math.exp(-age * 0.85) * trace.strength;
+      for (let strand = 0; strand < 5; strand++) {
+        paint.globalAlpha = fade * (0.32 - strand * 0.04);
+        paint.lineWidth = strand === 0 ? 1.5 : 0.65;
+        paint.strokeStyle = colour(trace.index);
+        paint.beginPath();
+        const spread = 11 + age * 56 + strand * 9;
+        paint.ellipse(
+          width * trace.x,
+          stringY(trace.index) + trace.bend * 12,
+          6 + spread * 0.3,
+          spread * (1 + Math.abs(trace.bend) * 0.14),
+          0.35 + trace.bend * 0.2,
+          0,
+          Math.PI * 2,
+        );
+        paint.stroke();
       }
-    paint.globalAlpha = 1;
-    for (let i = 0; i < 21; i++) {
-      const y = visualStringY(i);
-      drawStringPin(leftEnd, y);
-      drawStringPin(rightEnd, y);
-      drawBridge(i, width * (0.425 + i * 0.0105), y);
     }
     paint.globalAlpha = 1;
+    for (let i = 0; i < 21; i++) {
+      const y = stringY(i);
+      drawStringPin(geometry.left, y);
+      drawStringPin(geometry.right, y);
+      drawBridge(i, width * (0.425 + i * 0.0105), y);
+    }
     if (traces.length && !reduced.matches) frame = requestAnimationFrame(draw);
     else if (!traces.length)
       reading.textContent = "A space waiting for your touch.";
@@ -190,27 +180,20 @@
   function render() {
     if (!frame) frame = requestAnimationFrame(draw);
     clearTimeout(quietTimer);
-    if (reduced.matches)
-      quietTimer = setTimeout(() => {
-        traces = [];
-        draw();
-      }, 1300);
   }
   function resize() {
     const box = stage.getBoundingClientRect();
     width = box.width;
     height = box.height;
-    rowCenters = buttons.map((button) => {
-      const row = button.getBoundingClientRect();
-      return row.top + row.height / 2 - box.top;
-    });
     const ends = [...stage.querySelectorAll(".guzheng-end")];
-    if (ends.length === 2) {
-      const left = ends[0].getBoundingClientRect();
-      const right = ends[1].getBoundingClientRect();
-      stringStart = left.right - box.left;
-      stringEnd = right.left - box.left;
-    }
+    const left = ends[0]?.getBoundingClientRect();
+    const right = ends[1]?.getBoundingClientRect();
+    geometry = {
+      top: height * 0.2,
+      bottom: height * 0.82,
+      left: left ? left.right - box.left : width * 0.13,
+      right: right ? right.left - box.left : width * 0.87,
+    };
     const scale = Math.min(devicePixelRatio || 1, 2);
     canvas.width = Math.round(width * scale);
     canvas.height = Math.round(height * scale);
@@ -278,7 +261,6 @@
     traces = [];
     pointer = null;
     lastVoice = null;
-    // Clear the convolution tail too; no old phrase should return after unmute.
     if (reverb) {
       const impulse = reverb.buffer;
       reverb.buffer = null;
@@ -289,7 +271,7 @@
     clearTimeout(quietTimer);
     buttons.forEach((button) => button.removeAttribute("data-active"));
     reading.textContent = "A space waiting for your touch.";
-    noteReading.textContent = "D pentatonic";
+    noteReading.textContent = "String 21 · D2";
     draw();
   }
   function pluck(index, strength = 0.7, x = 0.52, delay = 0) {
@@ -301,19 +283,19 @@
       time: performance.now() + delay * 1000,
     };
     traces.push(trace);
-    traces = traces.slice(-24);
+    traces = traces.slice(-48);
     const voice = { trace, source: null };
     if (enabled && sample && context.state === "running") {
-      while (voices.length >= 8) stopVoice(voices.shift());
+      while (voices.length >= maxVoices) stopVoice(voices.shift());
       const source = context.createBufferSource();
       source.buffer = sample;
       source.playbackRate.value = frequencies[index] / 218.6;
       const gain = context.createGain();
       const pan = context.createStereoPanner();
-      pan.pan.value = (index - 2) * 0.23;
+      pan.pan.value = (index - 10) / 12;
       const start = context.currentTime + delay;
       gain.gain.setValueAtTime(0, start);
-      gain.gain.linearRampToValueAtTime(strength * 0.48, start + 0.004);
+      gain.gain.linearRampToValueAtTime(strength * 0.43, start + 0.004);
       source.connect(gain);
       gain.connect(pan);
       pan.connect(bus);
@@ -333,8 +315,9 @@
       button.toggleAttribute("data-active", i === index),
     );
     reading.textContent = "Pluck · a sound becomes a trace";
-    noteReading.textContent = names[index];
+    noteReading.textContent = label(index);
     render();
+    if (delay && reduced.matches) setTimeout(render, delay * 1000);
     return voice;
   }
   function bend(amount) {
@@ -351,7 +334,7 @@
       Math.abs(value) > 0.02
         ? "Bend · a note curves into light"
         : "Release · listen to the space between";
-    noteReading.textContent = `${names[lastVoice.trace.index]}${Math.abs(value) > 0.02 ? ` ${value > 0 ? "+" : ""}${value.toFixed(1)}` : ""}`;
+    noteReading.textContent = `${label(lastVoice.trace.index)}${Math.abs(value) > 0.02 ? ` ${value > 0 ? "+" : ""}${value.toFixed(1)}` : ""}`;
     render();
   }
   toggle.addEventListener("click", async () => {
@@ -384,7 +367,7 @@
       toggle.textContent = "Sound on · mute";
       toggle.setAttribute("aria-pressed", "true");
       setFeedback(
-        "Sound is on. Touch a string, hold and move sideways, or sweep up and down.",
+        "Sound is on. Touch any string, hold and move sideways, or sweep up and down.",
       );
     } catch {
       enabled = false;
@@ -409,21 +392,19 @@
     quiet();
     setFeedback("Quiet again. Touch a string to begin a new phrase.");
   });
-  const position = (event) => {
+  function position(event) {
     const box = stage.getBoundingClientRect();
     const x = clamp((event.clientX - box.left) / box.width, 0, 1);
-    const y = clamp(event.clientY - box.top, 0, box.height);
-    let index = 0;
-    while (
-      index < rowCenters.length - 1 &&
-      y > (rowCenters[index] + rowCenters[index + 1]) / 2
-    )
-      index++;
-    return {
-      index,
-      x,
-    };
-  };
+    const y = clamp(event.clientY - box.top, geometry.top, geometry.bottom);
+    const index = clamp(
+      Math.round(
+        ((y - geometry.top) / Math.max(1, geometry.bottom - geometry.top)) * 20,
+      ),
+      0,
+      20,
+    );
+    return { index, x };
+  }
   stage.addEventListener("pointerdown", (event) => {
     if (event.button !== 0 || pointer) return;
     const point = position(event);
@@ -460,24 +441,27 @@
   stage.addEventListener("pointerup", release);
   stage.addEventListener("pointercancel", release);
   stage.addEventListener("lostpointercapture", release);
-  buttons.forEach((button, i) =>
+  buttons.forEach((button, index) => {
     button.addEventListener("click", (event) => {
-      if (event.detail === 0) pluck(i); // Native keyboard/assistive activation only; pointerdown already plucked.
-    }),
-  );
-  stage.addEventListener("keydown", (event) => {
-    if (/^[1-5]$/.test(event.key) && !event.repeat) {
-      event.preventDefault();
-      pluck(Number(event.key) - 1);
-    } else if (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowLeft" || event.key === "ArrowRight") {
-      event.preventDefault();
-      bend(
-        (lastVoice?.trace.bend || 0) + (event.key === "ArrowUp" || event.key === "ArrowRight" ? 0.25 : -0.25),
-      );
-    }
-  });
-  stage.addEventListener("keyup", (event) => {
-    if (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowLeft" || event.key === "ArrowRight") bend(0);
+      if (event.detail === 0 || !stage.contains(button)) pluck(index);
+    });
+    button.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+        event.preventDefault();
+        buttons[
+          clamp(index + (event.key === "ArrowUp" ? -1 : 1), 0, 20)
+        ].focus();
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        bend(
+          (lastVoice?.trace.bend || 0) +
+            (event.key === "ArrowRight" ? 0.25 : -0.25),
+        );
+      }
+    });
+    button.addEventListener("keyup", (event) => {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") bend(0);
+    });
   });
   study.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
