@@ -117,18 +117,33 @@
       "--resonance",
       String(Math.min(0.72, 0.14 + rms * 12)),
     );
+    // The physical strings are a fixed, high-contrast baseline. A note's
+    // short-lived coloured vibration is painted separately above it, so a trace
+    // that continues expanding never replaces the playable string.
+    paint.strokeStyle = "#71462f";
+    paint.lineWidth = 2.55;
+    paint.globalAlpha = 0.94;
     for (let i = 0; i < 21; i++) {
       const y = stringY(i);
+      paint.beginPath();
+      paint.moveTo(geometry.left, y);
+      paint.lineTo(geometry.right, y);
+      paint.stroke();
+    }
+    for (let i = 0; i < 21; i++) {
       const recent = traces.filter(
         (trace) => trace.index === i && trace.time <= now,
       );
       const active = recent.at(-1);
-      const age = active ? Math.max(0, (now - active.time) / 1000) : 10;
-      const energy = active ? Math.exp(-age * 0.88) * active.strength : 0;
-      const bend = active ? active.bend : 0;
-      paint.strokeStyle = energy ? colour(i) : "#71462f";
-      paint.lineWidth = energy ? 0.45 + Math.min(1.8, energy * 1.5) : 2.55;
-      paint.globalAlpha = energy ? 0.35 + energy * 0.65 : 0.94;
+      const age = active ? Math.max(0, (now - active.time) / 1000) : Infinity;
+      // Keep the vibration independent from the 4.5 second light-trace life.
+      if (!active || age > 0.72) continue;
+      const energy = Math.exp(-age * 4.3) * active.strength;
+      const bend = active.bend;
+      const y = stringY(i);
+      paint.strokeStyle = colour(i);
+      paint.lineWidth = 1.1 + Math.min(0.3, energy * 0.3);
+      paint.globalAlpha = 0.22 + energy * 0.62;
       paint.beginPath();
       for (let x = geometry.left; x <= geometry.right; x += 3) {
         const t =

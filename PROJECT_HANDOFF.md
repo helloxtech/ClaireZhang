@@ -10,6 +10,8 @@ The repository is a dependency-free static admissions site. Current production b
 
 **Preview acceptance:** Parent CUA accepted the refreshed local preview at `http://127.0.0.1:4179/sound.html#interaction-study`: D4/D5 show a clear six-layer horizontal expansion while all 21 static strings and the 390px body remain visible; enabling sound has no console errors. Local `node --check listening.js`, `node build.mjs`, `git diff --check`, and HTTP 200 passed. Commit/push only this preview branch; do not create a PR, merge, or deploy.
 
+**Repeat-pluck correction:** a trace previously controlled both the 4.5-second light rings and the drawn string, which left a low-contrast coloured vibration in place. The draw loop now always paints all 21 dark-brown static strings first, then overlays the unchanged vibration formula in colour for at most 0.72 seconds (1.1–1.4px). This preserves repeat-click visibility without changing audio, geometry, rings, or controls. Preview only.
+
 ## Editorial preview · 2026-10-23
 
 **Scope:** the branch began as a preview-only redesign selected from supplied white editorial and dark sound references. The user subsequently gave explicit production acceptance on October 23; this preview-only boundary is superseded for the verified release, while future content changes still require their own authorization. Branch `codex/editorial-preview` starts from production `main` at `560b3ce`.
