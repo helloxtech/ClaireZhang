@@ -4,9 +4,11 @@
 
 The repository is a dependency-free static admissions site. Current production baseline and rollback is `main` commit `94e0ea39ab6018a276cf916586357fed85611389`, Cloudflare Pages deployment `c46707d2-6bbb-4287-bfbe-f3949935aa88`. Cloudflare project `claire-zhang` publishes both `clairezhang.ca` and `helloart.ca` from GitHub `main`, output `dist`.
 
-**Active scope:** task branch `codex/guzheng-clarity`, created from a fresh `origin/main` at that rollback commit. It improves only the Music, About, and Sound presentation: clearer static 21-string visibility, compact factual Music hierarchy, and a more personal About opening. It preserves the released 21-string geometry, D-pentatonic notes, gesture/audio controls, factual recital record, credits, shared shell, and concept attribution. Local visual and behavior review is complete; exact Git Preview and production release remain pending.
+**Active scope:** preview-only branch `codex/guzheng-glow-preview`, created from fresh production `main` at `c0b054c1021b1eff7e6d07b9c6245e3936689277`. It improves only the visual feedback of the existing horizontal 21-string Sound instrument: six colored expanding trace rings, bend-aware arc direction, and analyser-driven ambient glow. It preserves the released 390px stage, 21 visible static strings, note mapping, audio engine, sweep, bend, controls, and all other pages. Do not merge or deploy this preview without a new explicit authorization.
 
-**Where to verify:** `sound.html` and `listening.js` preserve the released instrument; `listening.js` changes only the non-playing static-string stroke. `music.html` and `about.html` contain the approved factual copy. `design-qa.md` records local visual/interaction results. Before an authorized release: build, syntax, scoped static link checks, exact Git preview, PR, then merge and exact SHA verification for both production domains; finish by reconciling the canonical checkout cleanly with a freshly reread remote.
+**Where to verify:** `listening.js` draws the trace rings and analyser mapping; `styles.css` uses `--resonance` for the soundbox glow; `sound.html` versions the two changed assets. Parent CUA is the visual/behavior acceptance evidence. Build and syntax are local gates. This task stops at preview acceptance.
+
+**Preview acceptance:** Parent CUA accepted the refreshed local preview at `http://127.0.0.1:4179/sound.html#interaction-study`: D4/D5 show a clear six-layer horizontal expansion while all 21 static strings and the 390px body remain visible; enabling sound has no console errors. Local `node --check listening.js`, `node build.mjs`, `git diff --check`, and HTTP 200 passed. Commit/push only this preview branch; do not create a PR, merge, or deploy.
 
 ## Editorial preview · 2026-10-23
 

@@ -154,3 +154,15 @@ See `PROJECT_HANDOFF.md` for current delivery state and screenshot names. Releas
 - Parent CUA confirmed the restored original dynamic effect: D4 pluck makes a visible trace; 390px geometry and string spacing match the released instrument. Earlier desktop checks also confirmed all 21 notes and keyboard controls.
 - Music now combines the hero and three factual strands into a wide-screen two-column introduction; the announced recital/poster/programme and separate credited website sound feature remain intact. About leads with Claire’s name, a concise subtitle, reduced portrait height, the supplied biography, two linked factual directions, and unchanged source/AI credits. Sound’s introduction accurately describes the website-made 21-string study.
 - Mobile Music/About has no horizontal overflow. The shared mobile menu is initially hidden, opens from Menu, closes with Escape and after navigation, and retains 44px targets. Local build, JavaScript syntax, HTML one-H1 checks, and whitespace/diff checks passed.
+
+---
+
+## Sound glow preview · 2026-10-23
+
+**Result: passed for local preview only; not merged or deployed.**
+
+- Scope is limited to the existing horizontal 21-string Sound instrument. The physical body, 390px desktop stage, static dark-brown 2.55px strings, audio mapping, sweep, bend, keyboard controls, and reduced-motion behavior remain unchanged.
+- The canvas trace now uses one high-contrast colored inner ring plus five low-alpha expanding outer rings. Pitch selects the existing trace color; bend changes the ring arc; scheduled sweep notes begin their traces at their own sound time. Existing static strings remain visible through the response.
+- The existing Web Audio analyser now drives a behind-instrument ambient lavender response only after sound is enabled. Gesture traces remain available while muted, without presenting a false audio-level readout.
+- Parent CUA accepted the refreshed local preview at `http://127.0.0.1:4179/sound.html#interaction-study`: D4/D5 visibly produced six-layer horizontal expansion; all 21 strings and the 390px body remained visible; enabling sound succeeded with no console errors.
+- Local gates: `node --check listening.js`, `node build.mjs`, `git diff --check`, and local HTTP 200 passed. No remote preview, PR, merge, or production deployment is claimed by this entry.

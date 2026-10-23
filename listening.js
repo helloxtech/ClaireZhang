@@ -115,7 +115,7 @@
     }
     stage.style.setProperty(
       "--resonance",
-      String(Math.min(0.44, 0.12 + rms * 1.8)),
+      String(Math.min(0.72, 0.14 + rms * 12)),
     );
     for (let i = 0; i < 21; i++) {
       const y = stringY(i);
@@ -147,24 +147,28 @@
     for (const trace of traces) {
       if (now < trace.time || reduced.matches) continue;
       const age = Math.max(0, (now - trace.time) / 1000);
-      const fade = Math.exp(-age * 0.85) * trace.strength;
-      for (let strand = 0; strand < 5; strand++) {
-        paint.globalAlpha = fade * (0.32 - strand * 0.04);
-        paint.lineWidth = strand === 0 ? 1.5 : 0.65;
-        paint.strokeStyle = colour(trace.index);
+      const fade = Math.exp(-age * 0.68) * trace.strength;
+      paint.save();
+      paint.strokeStyle = colour(trace.index);
+      paint.shadowColor = colour(trace.index);
+      for (let strand = 0; strand < 6; strand++) {
+        const spread = 18 + age * 72 + strand * 13;
+        paint.globalAlpha = fade * (0.66 - strand * 0.075);
+        paint.lineWidth = strand === 0 ? 2.8 : 1.1;
+        paint.shadowBlur = strand === 0 ? 0 : 10;
         paint.beginPath();
-        const spread = 11 + age * 56 + strand * 9;
         paint.ellipse(
-          width * trace.x,
-          stringY(trace.index) + trace.bend * 12,
-          6 + spread * 0.3,
-          spread * (1 + Math.abs(trace.bend) * 0.14),
-          0.35 + trace.bend * 0.2,
+          width * trace.x + trace.bend * 14,
+          stringY(trace.index),
+          spread * (1 + Math.abs(trace.bend) * 0.16),
+          6 + spread * 0.26,
+          -0.18 + trace.bend * 0.22,
           0,
           Math.PI * 2,
         );
         paint.stroke();
       }
+      paint.restore();
     }
     paint.globalAlpha = 1;
     for (let i = 0; i < 21; i++) {
