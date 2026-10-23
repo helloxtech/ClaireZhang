@@ -6,6 +6,8 @@ The current task is an admissions-oriented website redesign for visual art, desi
 
 **Delivery scope:** design candidate and development preview. Production has not been changed by this task. Cloudflare Pages project `claire-zhang` builds with `npm run build`, publishes `dist`, and previews all non-main branches. A push/merge to `main` automatically changes both `clairezhang.ca` and `helloart.ca`; that production trigger requires explicit target-and-scope authorization. Last verified production baseline: `9586e3e129e124991665f9bebc28d0adb31d57d2`. Recheck live configuration before any trigger.
 
+Published review candidate: [development preview](https://codex-admissions-redesign.claire-zhang.pages.dev/) and [draft PR #1](https://github.com/helloxtech/ClaireZhang/pull/1). Website implementation commit: `deff992e3f509aef70e5e8f9b8b7058341e76576`; Cloudflare preview deployment `7d636323-8c47-462a-9893-2565045ce15a` succeeded. The deployed home and Work navigation were browser-verified, with no broken images, overflow, or console errors observed. The PR is unmerged; production remains at the baseline above.
+
 ## Decisions and implementation
 
 - Replaced nine legacy pages with one coherent editorial design: warm paper, dark green, self-hosted Newsreader/Inter, genuine portrait and recital poster. Kept existing `.html` URLs, four primary links, and contextual footer navigation. No framework, analytics, form service, or new runtime dependency.

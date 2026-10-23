@@ -38,6 +38,10 @@ No actionable P0/P1/P2 issue remains.
 - Résumé: actual browser PDF output, one A4 page, visually inspected; draft labels retained.
 - Safari/Firefox and physical-device testing were not performed. Missing original work is an editorial readiness gap, not concealed by this design acceptance.
 
+## Development preview verification
+
+The candidate is published at https://codex-admissions-redesign.claire-zhang.pages.dev/ (implementation commit `deff992e3f509aef70e5e8f9b8b7058341e76576`). Browser verification confirmed the home, loaded images, primary Work navigation, three proposed studies, and no console warnings/errors. Final deployed capture: `/Users/forrest/.codex/visualizations/2026/10/23/01a16922-7c0a-7772-95e9-9fb64777d0cd/deployed-home.png`. Production was not deployed.
+
 ## Implementation checklist
 
 - [x] Compare selected concept and rendered home together.
