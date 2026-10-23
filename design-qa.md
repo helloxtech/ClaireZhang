@@ -1,3 +1,18 @@
+# Admissions-reader revision · 2026-10-23
+
+Final result: passed for the inspected states and current brief.
+
+The user authorized revising content/structure for admissions readers and publishing production. The matching before-state was the live AI-gallery-led Home. The revised layout retains ivory/navy typography while making the real person and sourced music history the first read. No new pixel-exact mock was supplied; acceptance is against the explicit reader-purpose change.
+
+- Removed generated project cards and pseudo-case-study narratives from the applicant presentation. Home uses only the existing genuine portrait and published recital poster.
+- Music/About/Interests lead navigation; the functioning website instrument remains separately credited in the footer. No invented authorship, process, personal quotation, qualification or completed performance.
+- Desktop composition reviewed from the saved full-page capture. Mobile Home and all nine routes at 390px rendered without overflow or broken loaded images. Mobile menu/Interests flow passed. All local link/fragment checks passed, including legacy demo/credit anchors.
+- Existing audio behaviour is unchanged. Local sound enable, keyboard pluck and mute passed after the HTML reorganization; audio analyser response was nonzero, and console errors were absent.
+- Evidence: admissions-01-home-before.png, admissions-02-study-before.png, admissions-03-home-desktop.png, admissions-04-home-mobile.png in the task visualization directory. Release receipt/final production screenshots belong to the associated pull request.
+- Claire’s real scanned artwork has been offered but not received. No placeholder is published. A later selection can sit after the introduction and before the recital.
+
+---
+
 # Production refinement · 2026-10-23
 
 Final result: passed for the inspected Chromium desktop/mobile states.
