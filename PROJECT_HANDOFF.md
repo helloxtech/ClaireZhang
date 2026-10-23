@@ -6,7 +6,7 @@ The current task is an admissions-oriented website redesign for visual art, desi
 
 **Delivery scope:** design candidate and development preview. Production has not been changed by this task. Cloudflare Pages project `claire-zhang` builds with `npm run build`, publishes `dist`, and previews all non-main branches. A push/merge to `main` automatically changes both `clairezhang.ca` and `helloart.ca`; that production trigger requires explicit target-and-scope authorization. Last verified production baseline: `9586e3e129e124991665f9bebc28d0adb31d57d2`. Recheck live configuration before any trigger.
 
-Review destinations: [development preview](https://codex-admissions-redesign.claire-zhang.pages.dev/) and [draft PR #1](https://github.com/helloxtech/ClaireZhang/pull/1). V2 is implemented and locally verified; this commit prepares the update to that existing preview branch. Confirm the current commit's Cloudflare deployment before treating it as live. The PR remains unmerged. Production remains at the baseline above.
+Review destinations: [development preview](https://codex-admissions-redesign.claire-zhang.pages.dev/) and [draft PR #1](https://github.com/helloxtech/ClaireZhang/pull/1). V2 implementation `1581b83dd312ca20f3e86c49791e83e242fded4e` is committed, published, and live-verified at the development preview. Cloudflare deployment `8834a4a4-5830-40b1-9fa2-32caaef306a9` succeeded; immutable preview: https://8834a4a4.claire-zhang.pages.dev/. The deployed Home loaded all five images and fonts without overflow or console errors; its Hands project card reached the matching Work anchor. The user-facing preview tab was refreshed to v2. The PR remains unmerged. Production remains at the baseline above.
 
 ## Decisions and implementation · v2
 

@@ -41,6 +41,10 @@ The visual reviewer found v2 materially stronger than v1 and retained its hierar
 - With JavaScript disabled, all primary navigation remains visible and the inactive menu button is hidden.
 - Résumé prints to one A4 page; output visually inspected. PDF rasterizer reported glyph-bound warnings, but visible content and Chinese programme text rendered intact.
 
+## Published-preview verification
+
+Implementation commit `1581b83dd312ca20f3e86c49791e83e242fded4e` deployed successfully in Cloudflare preview `8834a4a4-5830-40b1-9fa2-32caaef306a9`. The stable preview loaded all five Home images and fonts, three image disclosures and three card affordances, with no overflow or console warnings/errors. Clicking Hands reached `/art#hands` through Cloudflare's clean-URL redirect. Final deployed capture: `v2-deployed-home.png` in the evidence directory above. Production remained at `9586e3e129e124991665f9bebc28d0adb31d57d2`.
+
 ## Remaining limits
 
 This is a website design preview. Replace concept boards with Claire's original work and process, confirm the personal voice and metadata, and obtain family acceptance before application or production use. No cross-browser/device-wide or formal accessibility certification is claimed. Publishing this branch must remain a development-preview update; merging to main would change both public domains.
