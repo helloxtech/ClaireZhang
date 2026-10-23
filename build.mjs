@@ -17,7 +17,8 @@ const deployEntries = [
   "resume.html",
   "main.js",
   "styles.css",
-  "images"
+  "fonts.css",
+  "images",
 ];
 
 rmSync(outDir, { recursive: true, force: true });
