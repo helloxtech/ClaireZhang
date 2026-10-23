@@ -107,3 +107,16 @@ Sound flow accepted by parent CUA: enabling sound, Enter pluck, and Quiet & clea
 
 
 Final parent CUA acceptance: `editorial-home-v2` (1190px desktop comparison), its true-390px mobile companion, and `soundmobile` were captured and inspected. Home’s desktop/moblie composition follows the selected white editorial reference; the dark sound direction follows the selected sound reference. Mobile Home is 390px wide with no horizontal overflow when closed. The expanded navigation is constrained to the viewport inset. Menu open/close and Escape passed on Home, Work, and Sound.
+
+
+---
+
+# Published editorial release verification · 2026-10-23
+
+**Local acceptance result: passed.** The user accepted the editorial design for release; the release receipt and live-domain verification are recorded in `PROJECT_HANDOFF.md` after deployment.
+
+- Interests was replaced with an image-led editorial page: a Newsreader display heading, three alternating visual directions, and factual future-study copy grounded in the nine-year guzheng background. Each concept image is labelled as website art direction rather than student work. Parent CUA accepted desktop and true-390px views; the final capture is `interests-editorial-final.png`.
+- Music now has a direct, clearly credited link to the separately made sound experience. It preserves the recital facts and does not present the feature or third-party sample as Claire’s performance.
+- The sound feature now depicts a deliberately simplified horizontal five-note guzheng: a wooden resonant body, horizontal strings and staggered individual bridges. It is explicitly not a complete instrumental simulation.
+- Parent CUA verified five real button clicks map D / E / F♯ / A / B; rightward hold bends a note; an up/down sweep traverses strings; enable/mute, Quiet & clear, and keyboard Enter passed with no console errors. The true-390px mobile view had document width 390 with no overflow. Evidence: `guzheng-horizontal-mobile.png`.
+- Public-indexing preparation removes page-level `noindex, nofollow`; `robots.txt` continues to allow indexing and expose the sitemap. Concept-image and sound/sample provenance remain visible on the affected pages and in About.

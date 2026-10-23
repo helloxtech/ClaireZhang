@@ -21,6 +21,9 @@
     frame = 0,
     width = 0,
     height = 0;
+  let rowCenters = [],
+    stringStart = 0,
+    stringEnd = 0;
   let pointer = null,
     lastVoice = null,
     quietTimer = 0,
@@ -33,6 +36,8 @@
     feedback.textContent = text;
   };
 
+  // Canvas and pointer hit-testing use the live button rows, so their visual and interactive strings cannot drift apart.
+  const stringY = (index) => rowCenters[index] ?? height * (0.262 + index * 0.124);
   function draw(now = performance.now()) {
     frame = 0;
     if (!paint) return;
@@ -50,7 +55,7 @@
       String(Math.min(0.44, 0.12 + rms * 1.8)),
     );
     for (let i = 0; i < 5; i++) {
-      const x = (width * (i + 0.5)) / 5;
+      const y = stringY(i);
       const recent = traces.filter((trace) => trace.index === i);
       const active = recent[recent.length - 1];
       const age = active ? Math.max(0, (now - active.time) / 1000) : 10;
@@ -60,14 +65,16 @@
       paint.lineWidth = 1 + energy * 1.4;
       paint.globalAlpha = 0.3 + energy * 0.6;
       paint.beginPath();
-      for (let y = 66; y <= height - 78; y += 3) {
-        const t = (y - 66) / (height - 144);
+      const leftEnd = stringStart || width * 0.13;
+      const rightEnd = stringEnd || width * 0.87;
+      for (let x = leftEnd; x <= rightEnd; x += 3) {
+        const t = (x - leftEnd) / Math.max(1, rightEnd - leftEnd);
         const wave = reduced.matches
           ? 0
-          : Math.sin(t * Math.PI * (6 + i) - age * 12) * energy * 10;
-        const offset = Math.sin(t * Math.PI) * (bend * 24 + wave);
-        if (y === 66) paint.moveTo(x + offset, y);
-        else paint.lineTo(x + offset, y);
+          : Math.sin(t * Math.PI * (6 + i) - age * 12) * energy * 8;
+        const offset = Math.sin(t * Math.PI) * (bend * 17 + wave);
+        if (x === leftEnd) paint.moveTo(x, y + offset);
+        else paint.lineTo(x, y + offset);
       }
       paint.stroke();
     }
@@ -75,8 +82,8 @@
       for (const trace of traces) {
         const age = Math.max(0, (now - trace.time) / 1000);
         const fade = Math.exp(-age * 0.85) * trace.strength;
-        const x = (width * (trace.index + 0.5)) / 5;
-        const y = height * trace.y;
+        const x = width * trace.x;
+        const y = stringY(trace.index);
         paint.strokeStyle = colours[trace.index];
         for (let strand = 0; strand < 6; strand++) {
           paint.globalAlpha = fade * (0.34 - strand * 0.035);
@@ -84,11 +91,11 @@
           paint.beginPath();
           const spread = 12 + age * 58 + strand * 9;
           paint.ellipse(
-            x + trace.bend * 12,
-            y,
-            spread * (1 + trace.bend * 0.15),
+            x,
+            y + trace.bend * 12,
             6 + spread * 0.3,
-            -0.35 + trace.bend * 0.2,
+            spread * (1 + Math.abs(trace.bend) * 0.15),
+            0.35 + trace.bend * 0.2,
             0,
             Math.PI * 2,
           );
@@ -113,6 +120,17 @@
     const box = stage.getBoundingClientRect();
     width = box.width;
     height = box.height;
+    rowCenters = buttons.map((button) => {
+      const row = button.getBoundingClientRect();
+      return row.top + row.height / 2 - box.top;
+    });
+    const ends = [...stage.querySelectorAll(".guzheng-end")];
+    if (ends.length === 2) {
+      const left = ends[0].getBoundingClientRect();
+      const right = ends[1].getBoundingClientRect();
+      stringStart = left.right - box.left;
+      stringEnd = right.left - box.left;
+    }
     const scale = Math.min(devicePixelRatio || 1, 2);
     canvas.width = Math.round(width * scale);
     canvas.height = Math.round(height * scale);
@@ -194,11 +212,11 @@
     noteReading.textContent = "D pentatonic";
     draw();
   }
-  function pluck(index, strength = 0.7, y = 0.48, delay = 0) {
+  function pluck(index, strength = 0.7, x = 0.52, delay = 0) {
     const trace = {
       index,
       strength,
-      y: clamp(y, 0.22, 0.73),
+      x: clamp(x, 0.12, 0.88),
       bend: 0,
       time: performance.now() + delay * 1000,
     };
@@ -241,7 +259,7 @@
   }
   function bend(amount) {
     if (!lastVoice) return;
-    const value = clamp(amount, 0, 2);
+    const value = clamp(amount, -2, 2);
     lastVoice.trace.bend = value;
     if (lastVoice.source)
       lastVoice.source.detune.setTargetAtTime(
@@ -250,10 +268,10 @@
         0.025,
       );
     reading.textContent =
-      value > 0.02
+      Math.abs(value) > 0.02
         ? "Bend · a note curves into light"
         : "Release · listen to the space between";
-    noteReading.textContent = `${names[lastVoice.trace.index]}${value > 0.02 ? ` +${value.toFixed(1)}` : ""}`;
+    noteReading.textContent = `${names[lastVoice.trace.index]}${Math.abs(value) > 0.02 ? ` ${value > 0 ? "+" : ""}${value.toFixed(1)}` : ""}`;
     render();
   }
   toggle.addEventListener("click", async () => {
@@ -286,7 +304,7 @@
       toggle.textContent = "Sound on · mute";
       toggle.setAttribute("aria-pressed", "true");
       setFeedback(
-        "Sound is on. Touch a string, hold and move up, or sweep across.",
+        "Sound is on. Touch a string, hold and move sideways, or sweep up and down.",
       );
     } catch {
       enabled = false;
@@ -313,13 +331,17 @@
   });
   const position = (event) => {
     const box = stage.getBoundingClientRect();
+    const x = clamp((event.clientX - box.left) / box.width, 0, 1);
+    const y = clamp(event.clientY - box.top, 0, box.height);
+    let index = 0;
+    while (
+      index < rowCenters.length - 1 &&
+      y > (rowCenters[index] + rowCenters[index + 1]) / 2
+    )
+      index++;
     return {
-      index: clamp(
-        Math.floor(((event.clientX - box.left) / box.width) * 5),
-        0,
-        4,
-      ),
-      y: (event.clientY - box.top) / box.height,
+      index,
+      x,
     };
   };
   stage.addEventListener("pointerdown", (event) => {
@@ -327,8 +349,8 @@
     const point = position(event);
     stage.setPointerCapture(event.pointerId);
     buttons[point.index].focus({ preventScroll: true });
-    pointer = { id: event.pointerId, index: point.index, y: point.y };
-    pluck(point.index, 0.8, point.y);
+    pointer = { id: event.pointerId, index: point.index, x: point.x };
+    pluck(point.index, 0.8, point.x);
   });
   stage.addEventListener("pointermove", (event) => {
     if (!pointer || event.pointerId !== pointer.id) return;
@@ -341,11 +363,11 @@
         i !== point.index + direction;
         i += direction
       )
-        pluck(i, 0.66, point.y, step++ * 0.025);
+        pluck(i, 0.66, point.x, step++ * 0.025);
       pointer.index = point.index;
-      pointer.y = point.y;
+      pointer.x = point.x;
       reading.textContent = "Sweep · a phrase gathers light";
-    } else bend((pointer.y - point.y) * 6);
+    } else bend((point.x - pointer.x) * 5);
   });
   const release = (event) => {
     if (!pointer || event.pointerId !== pointer.id) return;
@@ -367,15 +389,15 @@
     if (/^[1-5]$/.test(event.key) && !event.repeat) {
       event.preventDefault();
       pluck(Number(event.key) - 1);
-    } else if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+    } else if (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowLeft" || event.key === "ArrowRight") {
       event.preventDefault();
       bend(
-        (lastVoice?.trace.bend || 0) + (event.key === "ArrowUp" ? 0.25 : -0.25),
+        (lastVoice?.trace.bend || 0) + (event.key === "ArrowUp" || event.key === "ArrowRight" ? 0.25 : -0.25),
       );
     }
   });
   stage.addEventListener("keyup", (event) => {
-    if (event.key === "ArrowUp" || event.key === "ArrowDown") bend(0);
+    if (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowLeft" || event.key === "ArrowRight") bend(0);
   });
   study.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
