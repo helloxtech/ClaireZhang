@@ -142,3 +142,15 @@ Final parent CUA acceptance: `editorial-home-v2` (1190px desktop comparison), it
 - CUA accepted Music, About, Interests and Resources on desktop/mobile, plus Home regression checks at 1269px, 1190px and 390px. No horizontal overflow; Home’s full `in-between.` title remains visible.
 
 See `PROJECT_HANDOFF.md` for current delivery state and screenshot names. Release remains pending exact Git preview verification.
+
+
+---
+
+# Guzheng clarity, Music, and About refinement · 2026-10-23
+
+**Local result: passed.**
+
+- The existing 21-string instrument keeps its released 390px stage height, physical geometry, bridge rendering, sweep, bend, pitch mapping, traces, and audio behavior. The only sound-rendering change is the static, non-playing string stroke: opaque dark brown at 2.55px, so the strings remain visible against the warm wood body. The active energy color, width, alpha, and light traces are unchanged.
+- Parent CUA confirmed the restored original dynamic effect: D4 pluck makes a visible trace; 390px geometry and string spacing match the released instrument. Earlier desktop checks also confirmed all 21 notes and keyboard controls.
+- Music now combines the hero and three factual strands into a wide-screen two-column introduction; the announced recital/poster/programme and separate credited website sound feature remain intact. About leads with Claire’s name, a concise subtitle, reduced portrait height, the supplied biography, two linked factual directions, and unchanged source/AI credits. Sound’s introduction accurately describes the website-made 21-string study.
+- Mobile Music/About has no horizontal overflow. The shared mobile menu is initially hidden, opens from Menu, closes with Escape and after navigation, and retains 44px targets. Local build, JavaScript syntax, HTML one-H1 checks, and whitespace/diff checks passed.

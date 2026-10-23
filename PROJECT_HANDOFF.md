@@ -2,9 +2,11 @@
 
 ## Current context · 2026-10-23
 
-The current task is an admissions-oriented website redesign for visual art, design, and creative technology. The repository remains a dependency-free static site. The active task branch is `codex/guzheng-21-strings`; integration branch is `main`. Start future implementation in a task worktree, preserving a clean canonical checkout aligned with a fresh remote read.
+The repository is a dependency-free static admissions site. Current production baseline and rollback is `main` commit `94e0ea39ab6018a276cf916586357fed85611389`, Cloudflare Pages deployment `c46707d2-6bbb-4287-bfbe-f3949935aa88`. Cloudflare project `claire-zhang` publishes both `clairezhang.ca` and `helloart.ca` from GitHub `main`, output `dist`.
 
-**Current delivery scope:** the user authorized the 21-string sound study and sitewide editorial cohesion follow-up. It expands the existing credited website instrument to 21 independently playable D-pentatonic strings, and unifies all ten routes around one editorial shell while retaining factual music/community/volunteer wording and concept attribution. Cloudflare Pages project `claire-zhang` publishes both `clairezhang.ca` and `helloart.ca` from `main`. The current production rollback is commit `73c9fededfbb8cb69f9a126e2b2eeac1dd8354ed`, deployment `10f1525b-3dab-4e74-986c-e25c9ed9c53e`; source is GitHub, output is `dist`, and production Git deployments are enabled. Release sequence: exact Git preview verification, PR, merge, then exact production verification on both domains.
+**Active scope:** task branch `codex/guzheng-clarity`, created from a fresh `origin/main` at that rollback commit. It improves only the Music, About, and Sound presentation: clearer static 21-string visibility, compact factual Music hierarchy, and a more personal About opening. It preserves the released 21-string geometry, D-pentatonic notes, gesture/audio controls, factual recital record, credits, shared shell, and concept attribution. Local visual and behavior review is complete; exact Git Preview and production release remain pending.
+
+**Where to verify:** `sound.html` and `listening.js` preserve the released instrument; `listening.js` changes only the non-playing static-string stroke. `music.html` and `about.html` contain the approved factual copy. `design-qa.md` records local visual/interaction results. Before an authorized release: build, syntax, scoped static link checks, exact Git preview, PR, then merge and exact SHA verification for both production domains; finish by reconciling the canonical checkout cleanly with a freshly reread remote.
 
 ## Editorial preview · 2026-10-23
 
