@@ -1,3 +1,18 @@
+# Production refinement · 2026-10-23
+
+Final result: passed for the inspected Chromium desktop/mobile states.
+
+The user expanded the approved design scope to finished public content and production delivery. No new static mock was supplied for the musical instrument; acceptance is against that interaction brief and the established ivory/navy/lilac visual system, not a claimed pixel match to an absent reference.
+
+- Replaced the duration counter with a full-width sound/gesture stage. Pluck, sweep and bend have distinct mapped responses. Real sample decoding and analyser-driven image intensity were observed; quiet returns the displayed energy to baseline.
+- Sound defaults off, is explicitly enabled, supports volume/mute, and clears on page hiding. Native string buttons retain keyboard access. Reduced-motion mode omits animated ripple paths.
+- Removed public preparation/checklist text across nine routes; source and AI authorship disclosures remain. No invented student work fills the content gaps.
+- Desktop 1280 and mobile 390/320 layouts inspected; no horizontal overflow or console errors observed. Local route/assets/fragment checks passed for all nine pages.
+- Evidence in the task visualization folder: `sound-01-before.png`, `sound-02-desktop.png`, `sound-04-mobile-320.png`. Final production captures and deployment receipt are linked in PR #1.
+- Limits: no physical iOS/Safari listening test, formal accessibility certification, or admissions outcome claim.
+
+---
+
 # Design QA · v2 · 2026-10-23
 
 **Result: local visual and interaction checks passed for the design concept; user acceptance pending.**

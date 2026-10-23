@@ -16,9 +16,13 @@ const deployEntries = [
   "music.html",
   "resume.html",
   "main.js",
+  "listening.js",
   "styles.css",
   "fonts.css",
+  "robots.txt",
+  "sitemap.xml",
   "images",
+  "audio",
 ];
 
 rmSync(outDir, { recursive: true, force: true });
