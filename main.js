@@ -27,7 +27,7 @@ if (menu && links) {
     if (event.target.closest("a")) closeMenu();
   });
   document.addEventListener("click", (event) => {
-    if (!event.target.closest(".nav")) closeMenu();
+    if (!event.target.closest('nav[aria-label="Main navigation"]')) closeMenu();
   });
   window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
 }

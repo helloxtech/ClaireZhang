@@ -15,6 +15,7 @@ const deployEntries = [
   "downloads.html",
   "music.html",
   "resume.html",
+  "sound.html",
   "main.js",
   "listening.js",
   "styles.css",
