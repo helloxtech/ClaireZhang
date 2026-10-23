@@ -2170,17 +2170,21 @@ footer {
 }
 .guzheng-soundbox {
   position: absolute;
-  inset: 62px 34px 52px;
-  border: 2px solid #9c6b43;
-  border-radius: 26px;
-  background: linear-gradient(102deg, #2b1a18, #6c3e25 47%, #2c1918 100%);
-  box-shadow: inset 0 0 0 9px #0d0b13, inset 0 0 0 11px #9a6841, 0 22px 58px #0009;
-  opacity: calc(.56 + var(--resonance) * .55);
+  inset: 62px 34px 54px;
+  border: 2px solid #b17b4e;
+  border-radius: 18px 64px 64px 18px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 6px, #fff2cd16 7px 8px, #6a3b2410 9px 12px, transparent 13px 20px),
+    linear-gradient(102deg, #805431, #e4b977 43%, #c18a50 72%, #6c3525 100%);
+  box-shadow: inset 0 0 0 7px #48261d, inset 0 0 0 9px #e7bd7a99, 0 18px 0 #3b1d1b, 0 28px 58px #0009;
+  opacity: calc(.68 + var(--resonance) * .32);
   pointer-events: none;
 }
-.guzheng-end { position: absolute; top: 12%; bottom: 12%; width: 18px; border-radius: 99px; background: #1a1113; box-shadow: inset 0 0 0 1px #bd9269; }
+.guzheng-soundbox::before { content: ""; position: absolute; inset: auto 3% -12px 2%; height: 17px; border-radius: 0 0 45px 14px; background: linear-gradient(#6e3021, #2b1517); box-shadow: 0 8px 15px #0008; }
+.guzheng-soundbox::after { content: ""; position: absolute; right: 8%; top: 7%; bottom: 7%; width: 10%; border-left: 2px solid #5a291f; border-radius: 0 46px 46px 0; background: linear-gradient(90deg, #f0c68166, #6c3227 72%); }
+.guzheng-end { position: absolute; top: 11%; bottom: 11%; width: 13px; border-radius: 99px; background: #4b211d; box-shadow: inset 0 0 0 1px #efc285, 2px 0 3px #0007; }
 .guzheng-end--left { left: 8%; }
-.guzheng-end--right { right: 8%; }
+.guzheng-end--right { right: 11%; }
 .sound-study .instrument-strings {
   inset: 20% 58px 18%;
   grid-template-columns: 1fr;
@@ -2188,21 +2192,6 @@ footer {
   gap: 0;
 }
 .sound-study .instrument-strings button { min-height: 42px; }
-.sound-study .guzheng-bridge {
-  position: absolute;
-  left: 65%;
-  top: calc(50% - 10px);
-  width: 20px;
-  height: 20px;
-  clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%);
-  background: linear-gradient(90deg, #e4bd79, #8e5430, #e5bf7e);
-  box-shadow: 0 2px 5px #0009;
-}
-.sound-study .instrument-strings button:nth-child(1) .guzheng-bridge { left: 46%; }
-.sound-study .instrument-strings button:nth-child(2) .guzheng-bridge { left: 50%; }
-.sound-study .instrument-strings button:nth-child(3) .guzheng-bridge { left: 54%; }
-.sound-study .instrument-strings button:nth-child(4) .guzheng-bridge { left: 58%; }
-.sound-study .instrument-strings button:nth-child(5) .guzheng-bridge { left: 62%; }
 .sound-study .instrument-strings button > span {
   z-index: 2;
   bottom: auto;
@@ -2221,5 +2210,4 @@ footer {
   .guzheng-soundbox { inset: 62px 12px 52px; }
   .sound-study .instrument-strings { inset: 20% 20px 18%; }
   .sound-study .instrument-strings button { min-height: 32px; }
-  .sound-study .guzheng-bridge { width: 17px; height: 17px; top: calc(50% - 8px); }
 }

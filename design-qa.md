@@ -120,3 +120,13 @@ Final parent CUA acceptance: `editorial-home-v2` (1190px desktop comparison), it
 - The sound feature now depicts a deliberately simplified horizontal five-note guzheng: a wooden resonant body, horizontal strings and staggered individual bridges. It is explicitly not a complete instrumental simulation.
 - Parent CUA verified five real button clicks map D / E / F♯ / A / B; rightward hold bends a note; an up/down sweep traverses strings; enable/mute, Quiet & clear, and keyboard Enter passed with no console errors. The true-390px mobile view had document width 390 with no overflow. Evidence: `guzheng-horizontal-mobile.png`.
 - Public-indexing preparation removes page-level `noindex, nofollow`; `robots.txt` continues to allow indexing and expose the sitemap. Concept-image and sound/sample provenance remain visible on the affected pages and in About.
+
+---
+
+# Guzheng form refinement · 2026-10-23
+
+**Result: local visual and interaction acceptance passed.** This is a website feature, not Claire’s recording, performance, or completed software project.
+
+- The existing five-note interaction now appears on a 21-string guzheng form: warm wood soundboard, end details, fixed string pins, staggered dark two-leg bridges, and ivory string slots. Five active strings are aligned to the accessible button zones; the other strings are visual context only.
+- Canvas computes active rows from actual button rectangles. Desktop and true-390px mobile testing confirmed D / E / F♯ / A / B zones, enabled sound, held bend, cross-string sweep, and Quiet & clear; console errors were empty and mobile document width stayed 390px.
+- Evidence: `guzheng-detailed-desktop.png` and `guzheng-detailed-mobile.png` in the task visualization directory. The existing sample attribution and website-feature disclosure remain visible.

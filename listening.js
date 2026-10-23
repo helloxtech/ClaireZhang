@@ -38,6 +38,68 @@
 
   // Canvas and pointer hit-testing use the live button rows, so their visual and interactive strings cannot drift apart.
   const stringY = (index) => rowCenters[index] ?? height * (0.262 + index * 0.124);
+  const visualStringY = (index) => {
+    const position = (index / 20) * 4;
+    const lower = Math.floor(position);
+    const upper = Math.min(4, Math.ceil(position));
+    const amount = position - lower;
+    return stringY(lower) + (stringY(upper) - stringY(lower)) * amount;
+  };
+  function drawBridge(index, x, y) {
+    const angle = (-0.13 + index * 0.013) * Math.PI;
+    const scale = clamp(width / 700, 0.48, 1);
+    paint.save();
+    paint.translate(x, y);
+    paint.scale(scale, scale);
+    paint.rotate(angle);
+    paint.shadowColor = "#130b10b8";
+    paint.shadowBlur = 5;
+    paint.shadowOffsetY = 4;
+    paint.fillStyle = "#3a1d18";
+    paint.beginPath();
+    paint.moveTo(-8, 12);
+    paint.lineTo(-2, 2);
+    paint.lineTo(0, 2);
+    paint.lineTo(-1, 12);
+    paint.closePath();
+    paint.fill();
+    paint.beginPath();
+    paint.moveTo(8, 12);
+    paint.lineTo(2, 2);
+    paint.lineTo(0, 2);
+    paint.lineTo(1, 12);
+    paint.closePath();
+    paint.fill();
+    paint.shadowColor = "transparent";
+    paint.fillStyle = "#6a3925";
+    paint.beginPath();
+    paint.moveTo(-4, -1);
+    paint.lineTo(4, -1);
+    paint.lineTo(2, 3);
+    paint.lineTo(-2, 3);
+    paint.closePath();
+    paint.fill();
+    paint.fillStyle = "#f2dfbd";
+    paint.fillRect(-3.2, -0.9, 6.4, 1.8);
+    paint.restore();
+  }
+  function drawStringPin(x, y) {
+    paint.save();
+    paint.globalAlpha = 0.82;
+    paint.shadowColor = "#130b10a8";
+    paint.shadowBlur = 2;
+    paint.shadowOffsetY = 1.5;
+    paint.fillStyle = "#3b201c";
+    paint.beginPath();
+    paint.arc(x, y, 1.85, 0, Math.PI * 2);
+    paint.fill();
+    paint.shadowColor = "transparent";
+    paint.fillStyle = "#f0c98b";
+    paint.beginPath();
+    paint.arc(x - 0.35, y - 0.35, 0.58, 0, Math.PI * 2);
+    paint.fill();
+    paint.restore();
+  }
   function draw(now = performance.now()) {
     frame = 0;
     if (!paint) return;
@@ -54,6 +116,19 @@
       "--resonance",
       String(Math.min(0.44, 0.12 + rms * 1.8)),
     );
+    const leftEnd = stringStart || width * 0.13;
+    const rightEnd = stringEnd || width * 0.87;
+    for (let i = 0; i < 21; i++) {
+      const y = visualStringY(i);
+      const playable = i % 5 === 0;
+      paint.strokeStyle = playable ? "#fff2cf" : "#e9c98b";
+      paint.lineWidth = playable ? 1.05 : 0.48 + (i % 3) * 0.08;
+      paint.globalAlpha = playable ? 0.82 : 0.3;
+      paint.beginPath();
+      paint.moveTo(leftEnd, y);
+      paint.lineTo(rightEnd, y);
+      paint.stroke();
+    }
     for (let i = 0; i < 5; i++) {
       const y = stringY(i);
       const recent = traces.filter((trace) => trace.index === i);
@@ -65,8 +140,6 @@
       paint.lineWidth = 1 + energy * 1.4;
       paint.globalAlpha = 0.3 + energy * 0.6;
       paint.beginPath();
-      const leftEnd = stringStart || width * 0.13;
-      const rightEnd = stringEnd || width * 0.87;
       for (let x = leftEnd; x <= rightEnd; x += 3) {
         const t = (x - leftEnd) / Math.max(1, rightEnd - leftEnd);
         const wave = reduced.matches
@@ -102,6 +175,13 @@
           paint.stroke();
         }
       }
+    paint.globalAlpha = 1;
+    for (let i = 0; i < 21; i++) {
+      const y = visualStringY(i);
+      drawStringPin(leftEnd, y);
+      drawStringPin(rightEnd, y);
+      drawBridge(i, width * (0.425 + i * 0.0105), y);
+    }
     paint.globalAlpha = 1;
     if (traces.length && !reduced.matches) frame = requestAnimationFrame(draw);
     else if (!traces.length)
