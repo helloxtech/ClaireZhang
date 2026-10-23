@@ -4,7 +4,19 @@
 
 The current task is an admissions-oriented website redesign for visual art, design, and creative technology. The repository remains a dependency-free static site. The candidate is on `codex/admissions-redesign`; integration branch is `main`. Start future implementation in a task worktree, preserving a clean canonical checkout aligned with a fresh remote read.
 
-**Delivery scope:** the user explicitly requested the complete production website on October 23, with no further content input assumed and a 15-minute working window. This supersedes the earlier preview-only boundary for this release. Cloudflare Pages project `claire-zhang` publishes both `clairezhang.ca` and `helloart.ca` from `main`; actual source/domains/build were reread before release. Previous production commit `9586e3e129e124991665f9bebc28d0adb31d57d2`, deployment `affea8e2-1eb9-475f-b81e-892840b0114a`, is the rollback point. Current release receipt is maintained in [PR #1](https://github.com/helloxtech/ClaireZhang/pull/1).
+**Delivery scope:** the user explicitly requested the complete production website on October 23, with no further content input assumed and a 15-minute working window. This supersedes the earlier preview-only boundary for this release. Cloudflare Pages project `claire-zhang` publishes both `clairezhang.ca` and `helloart.ca` from `main`; actual source/domains/build were reread before release. Previous production commit `9586e3e129e124991665f9bebc28d0adb31d57d2`, deployment `affea8e2-1eb9-475f-b81e-892840b0114a`, is the rollback point. The initial production release receipt is in [PR #1](https://github.com/helloxtech/ClaireZhang/pull/1); subsequent scoped receipts are in the [repository pull requests](https://github.com/helloxtech/ClaireZhang/pulls?q=is%3Apr).
+
+## Admissions-reader revision · 2026-10-23
+
+**Current request:** make the public site suitable to share directly with admissions readers using existing facts, then update production. This is a supporting personal profile; it does not claim to replace a school’s required original portfolio. The user subsequently offered scans of Claire’s existing artwork. No scans have arrived. They will be curated later, with selected originals placed after the personal introduction and before the recital. No placeholder or generated student work is used while waiting.
+
+**Reader journey and evidence:** Home now leads with the authentic portrait, Claire’s name, nine-year guzheng study, named teacher, sourced upcoming recital, and family-provided undergraduate study interests. Navigation is Music / About / Interests. Unsupported personality claims, invented first-person voice, purported process and AI pseudo-case studies were removed. Sources/credits distinguish the third-person AI-assisted site text from a student personal statement. Recital enquiries go to the Academy; applicant correspondence points to the contact details supplied with the actual application.
+
+**Website feature:** the sound instrument remains at `art.html#interaction-study`, explicitly credited as website production and reached from the footer. It is separate from Claire’s work. The two former generated art case studies no longer appear on public pages; legacy anchors remain as explanatory paragraphs. Audio implementation is unchanged.
+
+**Verification:** nine-page HTML/assets/fragment checks passed, including every `#site-credits` link. Genuine-only Home imagery verified. Chromium desktop Home and 390px views of all nine pages had no overflow or broken loaded images; mobile menu/Interests navigation and sound enable/pluck/mute smoke checks passed, with nonzero analyser response and no console errors. Existing unchanged audio behaviour checks are reused. Independent narrative and visual reviews passed; a reported credit-anchor concern was disproved by the current source and complete fragment check. Design evidence: `admissions-01-home-before.png`, `admissions-03-home-desktop.png`, `admissions-04-home-mobile.png` in the task evidence folder.
+
+**Release:** user explicitly authorizes the production update. Rechecked Cloudflare source/domains/build and fresh remote refs before delivery. Previous production is `3a6489f4bf9ff5f69ab1ec25245c54ece2f8a78c`, deployment `a491bec0-b56e-43fa-baaa-ba779f66525d`, retained for rollback. Current publication/live receipt belongs to this revision’s GitHub pull request; no additional source commit is needed just to record its own SHA.
 
 ## Production content and listening instrument · 2026-10-23
 
@@ -60,15 +72,11 @@ Menu open and Escape/focus restoration passed. A Home project card navigated to 
 
 See `design-qa.md` for the design-specific acceptance criteria, source/capture evidence, and intentional differences. This is a reviewed **visual concept**, with family acceptance and authentic portfolio content still pending. No claim of admissions readiness, cross-browser certification, or formal WCAG conformance is made.
 
-## Remaining content and release work
+## Next content update
 
-1. Inventory Claire's real artwork, sketchbooks, process images, and any digital experiments. Replace proposed entries with a small, strong selection; do not create fictitious case studies or student authorship.
-2. Have Claire rewrite/approve the proposed personal voice; confirm education/year, accurate work metadata, contribution/tools, and suitable public contact details.
-3. After the recital, add an authorized real recording and Claire's own reflection if available. Do not automatically mark completion from the date.
-4. Prepare school-specific files in the required portals. The website is a supporting archive.
-5. Review the candidate preview. Only remove draft notices/indexing restrictions and deploy production after content is verified and the production target/scope is explicitly authorized. Retain the prior commit/deployment as rollback.
+The user has offered to scan real prior artwork. Recommended intake: 3–5 candidates, full-colour originals without enhancement/cropping, with title (if any), year, medium and a brief explanation of intent. Select up to three strong originals for Home after the introduction, before the recital, and provide accurate attribution and metadata. Do not assume those files exist or that this intake blocks the currently authorized personal-profile release.
 
-The earlier `claire-university-website-brief.md` and YAML content template are historical planning context; their sample achievements are not verified records.
+Keep recital status announced until actual completion evidence exists. School-specific original portfolio submissions remain a separate process. The old `claire-university-website-brief.md` and YAML template are historical planning documents, not verified achievements.
 
 ## Key history
 
