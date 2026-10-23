@@ -12,6 +12,8 @@ Main owned the instrument, integration and release. Two bounded agents updated H
 
 `listening.js` replaces the timed reveal with five playable D-pentatonic strings: pluck, sweep, upward pitch bend, release, keyboard equivalents, opt-in sound, volume, quiet/clear, visibility cleanup and reduced-motion rendering. A locally hosted, trimmed CC0 sample replaces synthetic oscillators; exact provenance and processing are in `audio/README.md`. No camera, microphone, recording, backend or new package dependency. Canvas traces represent live gestures; the backdrop uses the existing disclosed concept image.
 
+Production cache finding: existing visitors could retain the former `styles.css`, making the new canvas inherit the wrong size. All page style/script URLs now carry a release version to force coherent assets.
+
 Checks: production build, JS syntax and nine-page local links/anchors/IDs passed. Chromium exercised sample load, audio-driven analyser response, pointer sweep, keyboard pluck, clear, 390/320 px layout and reduced motion. Browser console had no errors. The final deployment and live verification belong to the PR release receipt, not an unverified claim in this source commit. Safari/device listening was not independently tested.
 
 ## Earlier identity and interaction refinement · 2026-10-23
