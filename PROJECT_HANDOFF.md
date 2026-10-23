@@ -2,9 +2,9 @@
 
 ## Current context · 2026-10-23
 
-The current task is an admissions-oriented website redesign for visual art, design, and creative technology. The repository remains a dependency-free static site. The active release branch is `codex/editorial-preview`; integration branch is `main`. Start future implementation in a task worktree, preserving a clean canonical checkout aligned with a fresh remote read.
+The current task is an admissions-oriented website redesign for visual art, design, and creative technology. The repository remains a dependency-free static site. The active task branch is `codex/guzheng-21-strings`; integration branch is `main`. Start future implementation in a task worktree, preserving a clean canonical checkout aligned with a fresh remote read.
 
-**Delivery scope:** on October 23 the user explicitly accepted the editorial Home, Work, Interests, Music sound entry, and the horizontal five-note guzheng website feature for production. That authorization supersedes the earlier preview-only boundary. Cloudflare Pages project `claire-zhang` publishes both `clairezhang.ca` and `helloart.ca` from `main`. The current rollback is production commit `560b3cefbf3328182bcf6bd73a93400843a4a2ae`, deployment `b2a6d35d-9048-4807-985a-498bca18dda4`; source is GitHub, output is `dist`, and production Git deployments are enabled. Release sequence: exact Git preview verification, PR, merge, then exact production verification on both domains.
+**Current delivery scope:** the user authorized the 21-string sound study and sitewide editorial cohesion follow-up. It expands the existing credited website instrument to 21 independently playable D-pentatonic strings, and unifies all ten routes around one editorial shell while retaining factual music/community/volunteer wording and concept attribution. Cloudflare Pages project `claire-zhang` publishes both `clairezhang.ca` and `helloart.ca` from `main`. The current production rollback is commit `73c9fededfbb8cb69f9a126e2b2eeac1dd8354ed`, deployment `10f1525b-3dab-4e74-986c-e25c9ed9c53e`; source is GitHub, output is `dist`, and production Git deployments are enabled. Release sequence: exact Git preview verification, PR, merge, then exact production verification on both domains.
 
 ## Editorial preview · 2026-10-23
 

@@ -5,7 +5,7 @@
   --body: #354052;
   --muted: #626675;
   --line: #c5c4c6;
-  --accent: #3454f5;
+  --accent: var(--editorial-red);
   --olive: var(--accent);
   --wash: #f0eee9;
   --serif: "Newsreader", Georgia, serif;
