@@ -100,3 +100,11 @@ Keep recital status announced until actual completion evidence exists. School-sp
 
 - 2026-10-23 v1: nine-route factual/editorial redesign published from `deff992e3f509aef70e5e8f9b8b7058341e76576`; documentation commit `9ef358a362ca3ab62b1999a1a336ea9e5c22d489` previewed successfully. The user subsequently rejected its visual standard.
 - 2026-10-23 v2: replaced that presentation with image-led Sensory Field Notes, following independent visual and visitor-journey critiques. The original review approval is superseded; its functional checks alone were insufficient evidence of design acceptance.
+
+## Guzheng form refinement · 2026-10-23
+
+**Scope:** accepted refinement limited to the separately credited `sound.html` website feature. Rollback is production `627c57b63cc39d29b1e435e50688926608c51e61`, deployment `bf11c617-d7c4-4866-8d70-d9fdea49558b`.
+
+**Implementation:** The visual form now has a warm paulownia-like longitudinal-grain soundboard, dark red-brown end and thickness details, 21 parallel strings, staggered dark-wood two-leg bridges with ivory string slots, and fixed end pins. The interaction remains deliberately limited to five aligned sound zones: the 21-string form does not claim a full instrument simulation. Canvas geometry continues to derive the five active rows from the actual accessible button rectangles, so static and dynamic strings, hit testing, sweep, bend, keyboard controls, sound enable/mute, and quiet/clear remain aligned. Cache URLs for the changed Sound CSS and JavaScript are versioned.
+
+**Verification:** Parent CUA accepted desktop and true-390px mobile views. Both showed distinct bridges without horizontal overflow; five click zones produced D / E / F♯ / A / B, enable sound, held bend, cross-string sweep, and clear reset passed with no console errors. Evidence: `guzheng-detailed-desktop.png` and `guzheng-detailed-mobile.png` in the task visualization directory. Local build, JavaScript syntax, and diff checks passed. Publish only after exact Git Preview validation, then verify both production domains and reconcile the canonical checkout.
