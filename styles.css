@@ -2434,3 +2434,33 @@ body:not(.sound-page) a:focus-visible { outline: 2px solid var(--vermilion); out
   .shared-header .editorial-nav li, .shared-header .editorial-nav a { width: 100%; }
   .shared-header .editorial-nav a { min-height: 44px; box-sizing: border-box; }
 }
+
+/* Music keeps its editorial introduction compact on wide screens, then flows naturally on mobile. */
+.music-introduction { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr); gap: clamp(46px, 8vw, 120px); align-items: end; border-bottom: 1px solid #222; padding-bottom: 42px; }
+.music-introduction .music-hero { max-width: 690px; padding: 22px 0 0; }
+.music-introduction .music-pillars { display: block; border: 0; padding: 0; }
+.music-introduction .music-pillars article { border-top: 1px solid #777; padding: 14px 0 16px; }
+.music-introduction .music-pillars article:last-child { border-bottom: 1px solid #777; }
+.music-introduction .music-pillars span { margin: 0 0 6px; font-size: 16px; }
+.music-introduction .music-pillars h2 { font-size: clamp(28px, 2.8vw, 37px); margin: 0 0 5px; }
+.music-introduction .music-pillars p { max-width: 39ch; margin: 0; font-size: 14px; }
+
+/* About starts with Claire's name and lets the portrait retain its natural proportions. */
+.about-hero { padding-bottom: 48px; }
+.about-hero img { max-height: 520px; object-fit: cover; }
+.about-hero h1 { margin-bottom: 11px; }
+.about-name { color: var(--ink); font: 400 28px/1.1 var(--serif); margin: 0 0 25px; }
+
+@media (max-width: 760px) {
+  .music-introduction { display: block; padding-bottom: 24px; }
+  .music-introduction .music-hero { padding-bottom: 24px; }
+  .music-introduction .music-pillars { display: grid; gap: 24px; }
+  .music-introduction .music-pillars article { padding: 16px 0 0; border-top: 1px solid #777; }
+  .music-introduction .music-pillars article:last-child { padding-bottom: 16px; border-bottom: 1px solid #777; }
+}
+
+/* Keep the shared mobile menu collapsed until its semantic control opens it. */
+@media (max-width: 760px) {
+  .js .shared-header .editorial-nav { display: none; }
+  .js .shared-header .editorial-nav.open { display: flex; }
+}

@@ -126,9 +126,9 @@
       const age = active ? Math.max(0, (now - active.time) / 1000) : 10;
       const energy = active ? Math.exp(-age * 0.88) * active.strength : 0;
       const bend = active ? active.bend : 0;
-      paint.strokeStyle = energy ? colour(i) : "#e9c98b";
-      paint.lineWidth = 0.45 + Math.min(1.8, energy * 1.5);
-      paint.globalAlpha = energy ? 0.35 + energy * 0.65 : 0.31;
+      paint.strokeStyle = energy ? colour(i) : "#71462f";
+      paint.lineWidth = energy ? 0.45 + Math.min(1.8, energy * 1.5) : 2.55;
+      paint.globalAlpha = energy ? 0.35 + energy * 0.65 : 0.94;
       paint.beginPath();
       for (let x = geometry.left; x <= geometry.right; x += 3) {
         const t =
