@@ -130,3 +130,15 @@ Final parent CUA acceptance: `editorial-home-v2` (1190px desktop comparison), it
 - The existing five-note interaction now appears on a 21-string guzheng form: warm wood soundboard, end details, fixed string pins, staggered dark two-leg bridges, and ivory string slots. Five active strings are aligned to the accessible button zones; the other strings are visual context only.
 - Canvas computes active rows from actual button rectangles. Desktop and true-390px mobile testing confirmed D / E / F♯ / A / B zones, enabled sound, held bend, cross-string sweep, and Quiet & clear; console errors were empty and mobile document width stayed 390px.
 - Evidence: `guzheng-detailed-desktop.png` and `guzheng-detailed-mobile.png` in the task visualization directory. The existing sample attribution and website-feature disclosure remain visible.
+
+---
+
+# 21-string sound study and editorial cohesion · 2026-10-23
+
+**Local acceptance: passed.** The sound feature is a website-made interaction, separate from Claire’s work, recording, performance, and software projects. It preserves third-party sample attribution.
+
+- All 21 strings map in order from D2 through D6. Parent CUA confirmed individual notes, full sweep, bend, clear and keyboard behavior; the mobile 390px selector is 7 columns by 3 rows with 44px targets and no horizontal overflow.
+- A shared white editorial shell now contains all five primary navigation links and the common footer. Sound keeps its selected dark interior. CUA verified its mobile five-row menu, Sound anchor navigation, and shell alignment.
+- CUA accepted Music, About, Interests and Resources on desktop/mobile, plus Home regression checks at 1269px, 1190px and 390px. No horizontal overflow; Home’s full `in-between.` title remains visible.
+
+See `PROJECT_HANDOFF.md` for current delivery state and screenshot names. Release remains pending exact Git preview verification.
