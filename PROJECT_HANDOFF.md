@@ -2,9 +2,19 @@
 
 ## Current context · 2026-10-23
 
-The current task is an admissions-oriented website redesign for visual art, design, and creative technology. The repository remains a dependency-free static site. The candidate is on `codex/admissions-redesign`; integration branch is `main`. Start future implementation in a task worktree, preserving a clean canonical checkout aligned with a fresh remote read.
+The current task is an admissions-oriented website redesign for visual art, design, and creative technology. The repository remains a dependency-free static site. The active release branch is `codex/editorial-preview`; integration branch is `main`. Start future implementation in a task worktree, preserving a clean canonical checkout aligned with a fresh remote read.
 
-**Delivery scope:** the user explicitly requested the complete production website on October 23, with no further content input assumed and a 15-minute working window. This supersedes the earlier preview-only boundary for this release. Cloudflare Pages project `claire-zhang` publishes both `clairezhang.ca` and `helloart.ca` from `main`; actual source/domains/build were reread before release. Previous production commit `9586e3e129e124991665f9bebc28d0adb31d57d2`, deployment `affea8e2-1eb9-475f-b81e-892840b0114a`, is the rollback point. The initial production release receipt is in [PR #1](https://github.com/helloxtech/ClaireZhang/pull/1); subsequent scoped receipts are in the [repository pull requests](https://github.com/helloxtech/ClaireZhang/pulls?q=is%3Apr).
+**Delivery scope:** on October 23 the user explicitly accepted the editorial Home, Work, Interests, Music sound entry, and the horizontal five-note guzheng website feature for production. That authorization supersedes the earlier preview-only boundary. Cloudflare Pages project `claire-zhang` publishes both `clairezhang.ca` and `helloart.ca` from `main`. The current rollback is production commit `560b3cefbf3328182bcf6bd73a93400843a4a2ae`, deployment `b2a6d35d-9048-4807-985a-498bca18dda4`; source is GitHub, output is `dist`, and production Git deployments are enabled. Release sequence: exact Git preview verification, PR, merge, then exact production verification on both domains.
+
+## Editorial preview · 2026-10-23
+
+**Scope:** the branch began as a preview-only redesign selected from supplied white editorial and dark sound references. The user subsequently gave explicit production acceptance on October 23; this preview-only boundary is superseded for the verified release, while future content changes still require their own authorization. Branch `codex/editorial-preview` starts from production `main` at `560b3ce`.
+
+**Implementation:** Home now uses the white-paper, Newsreader, vermilion-accent editorial composition: concept hero, third-person introduction, authentic portrait, three named directions, and a compact factual recital band. `art.html` presents **Light at the threshold**, **Hands that remember**, and **A listening map** as website art direction and future study directions; each image is marked concept imagery rather than Claire’s work. `sound.html` is a new separately credited dark sound experience using the existing native gesture/audio DOM and `listening.js`. `art.html#interaction-study` remains a compatibility anchor that leads to `sound.html`. New optimized local assets are `images/editorial/hero.webp`, `gesture.webp`, and `sounddark.webp`.
+
+**Cache/interaction fix:** the mobile Menu initially closed because the outside-click handler only recognized `.nav`, while editorial headers use semantic navigation. The handler now uses `nav[aria-label="Main navigation"]`; all ten HTML routes version `main.js` as `20261023-editorial-1` to prevent stale-cache behavior.
+
+**Verification before preview push:** build, `node --check main.js`, `node --check listening.js`, and diff checks pass. Static inspection confirms 10 routes each have one H1, local assets resolve, and linked local fragments resolve. Parent CUA accepted the desktop 1190px and true 390px Home composition with no horizontal overflow, and accepted the Sound flow: Menu after cache refresh, enable sound, Enter pluck, Quiet & clear, and no console errors. `design-qa.md` records the reference comparison.
 
 ## Editorial richness correction · 2026-10-23
 

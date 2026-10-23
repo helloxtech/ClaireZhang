@@ -95,3 +95,28 @@ Implementation commit `1581b83dd312ca20f3e86c49791e83e242fded4e` deployed succes
 ## Remaining limits
 
 This is a website design preview. Replace concept boards with Claire's original work and process, confirm the personal voice and metadata, and obtain family acceptance before application or production use. No cross-browser/device-wide or formal accessibility certification is claimed. Publishing this branch must remain a development-preview update; merging to main would change both public domains.
+
+
+## Editorial preview · 2026-10-23
+
+Reference: the supplied white editorial mock and dark sound mock. Home intentionally uses a white paper field, Newsreader display type, vermilion accents, a compact 480px desktop hero, three visual cards and a factual recital band. The three cards and artwork details are labelled concept imagery; they do not assert Claire authored or completed them. `art.html#interaction-study` remains an available compatibility anchor and directs to the separately credited `sound.html` experience.
+
+Mobile evidence: parent CUA inspection at a true 390px viewport found Home has no horizontal overflow. The compound word `in-between.` is kept intact with `white-space: nowrap`; the mobile title is reduced to 58px and may put `the` on its own line. The recital-band decorative image carries a compact `Concept imagery` caption. Desktop comparison at 1190px was accepted against the supplied white editorial reference; the card assets intentionally differ from the reference to avoid image/copy mismatch.
+
+Sound flow accepted by parent CUA: enabling sound, Enter pluck, and Quiet & clear worked with no console error. Mobile Menu initially closed immediately because the legacy outside-click predicate only recognized `.nav`; it now recognizes `nav[aria-label="Main navigation"]`. Every HTML route receives a versioned `main.js` URL so preview clients do not retain the stale handler.
+
+
+Final parent CUA acceptance: `editorial-home-v2` (1190px desktop comparison), its true-390px mobile companion, and `soundmobile` were captured and inspected. Home’s desktop/moblie composition follows the selected white editorial reference; the dark sound direction follows the selected sound reference. Mobile Home is 390px wide with no horizontal overflow when closed. The expanded navigation is constrained to the viewport inset. Menu open/close and Escape passed on Home, Work, and Sound.
+
+
+---
+
+# Published editorial release verification · 2026-10-23
+
+**Local acceptance result: passed.** The user accepted the editorial design for release; the release receipt and live-domain verification are recorded in `PROJECT_HANDOFF.md` after deployment.
+
+- Interests was replaced with an image-led editorial page: a Newsreader display heading, three alternating visual directions, and factual future-study copy grounded in the nine-year guzheng background. Each concept image is labelled as website art direction rather than student work. Parent CUA accepted desktop and true-390px views; the final capture is `interests-editorial-final.png`.
+- Music now has a direct, clearly credited link to the separately made sound experience. It preserves the recital facts and does not present the feature or third-party sample as Claire’s performance.
+- The sound feature now depicts a deliberately simplified horizontal five-note guzheng: a wooden resonant body, horizontal strings and staggered individual bridges. It is explicitly not a complete instrumental simulation.
+- Parent CUA verified five real button clicks map D / E / F♯ / A / B; rightward hold bends a note; an up/down sweep traverses strings; enable/mute, Quiet & clear, and keyboard Enter passed with no console errors. The true-390px mobile view had document width 390 with no overflow. Evidence: `guzheng-horizontal-mobile.png`.
+- Public-indexing preparation removes page-level `noindex, nofollow`; `robots.txt` continues to allow indexing and expose the sitemap. Concept-image and sound/sample provenance remain visible on the affected pages and in About.

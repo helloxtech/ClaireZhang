@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="A separately credited website sound-and-image experience for Claire Zhang’s site." />
+    <title>Sound experience — Claire Zhang</title>
+    <link rel="canonical" href="https://clairezhang.ca/sound" />
+    <meta name="theme-color" content="#0b0b13" />
+    <link rel="stylesheet" href="styles.css?v=20261023-editorial-production-1" />
+    <script src="main.js?v=20261023-editorial-1" defer></script>
+    <script src="listening.js?v=20261023-horizontal-1" defer></script>
+  </head>
+  <body class="sound-page">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="sound-header wrap"><a class="editorial-wordmark" href="index.html">Claire Zhang</a><nav aria-label="Main navigation"><button class="menu-button" aria-expanded="false" aria-controls="nav-menu" type="button">Menu</button><ul class="editorial-nav nav-links" id="nav-menu"><li><a href="art.html">Work</a></li><li><a href="music.html">Music</a></li><li><a href="about.html">About</a></li></ul></nav><p>Website feature · Not Claire’s work</p></header>
+    <main id="main" class="sound-main wrap">
+      <section class="sound-intro"><div><p class="editorial-label">Resonance</p><h1>between<br />image<br /><em>&amp; sound.</em></h1><p>A place for looking, listening, and trying something new.</p><a href="#interaction-study">Begin listening <span aria-hidden="true">→</span></a></div><figure><img src="images/editorial/sounddark.webp" width="1672" height="941" alt="Concept image of suspended translucent forms" /><figcaption>A listening map · Concept image, not student work</figcaption></figure></section>
+      <section id="interaction-study" class="interaction-study sound-study" aria-labelledby="study-heading" data-interaction-study>
+        <div class="study-heading"><div><span class="editorial-label">Website feature · AI-assisted</span><h2 id="study-heading">Touch. Listen. Leave a trace.</h2></div><p>Created for this website with AI assistance. It is separate from Claire’s work and uses a credited third-party sample.</p></div>
+        <div class="listening-instrument" hidden>
+          <div class="instrument-toolbar"><div class="sound-controls"><button id="sound-toggle" type="button" aria-pressed="false">Enable sound</button><label for="sound-volume">Volume <input id="sound-volume" type="range" min="0" max="100" value="55" /></label></div><button id="study-clear" type="button">Quiet &amp; clear</button></div>
+          <div class="instrument-stage" role="group" aria-label="Simplified five-string horizontal guzheng listening instrument" aria-describedby="instrument-help"><div class="guzheng-soundbox" aria-hidden="true"><span class="guzheng-end guzheng-end--left"></span><span class="guzheng-end guzheng-end--right"></span></div><canvas class="instrument-canvas" aria-hidden="true"></canvas><div class="instrument-caption" aria-hidden="true"><span>01—05 / Simplified five-note study</span><span>Guzheng · gesture · light</span></div><div class="instrument-strings"><button type="button" data-note="0" aria-label="Pluck D, key 1"><i class="guzheng-bridge" aria-hidden="true"></i><span><b>D</b><small>1</small></span></button><button type="button" data-note="1" aria-label="Pluck E, key 2"><i class="guzheng-bridge" aria-hidden="true"></i><span><b>E</b><small>2</small></span></button><button type="button" data-note="2" aria-label="Pluck F sharp, key 3"><i class="guzheng-bridge" aria-hidden="true"></i><span><b>F♯</b><small>3</small></span></button><button type="button" data-note="3" aria-label="Pluck A, key 4"><i class="guzheng-bridge" aria-hidden="true"></i><span><b>A</b><small>4</small></span></button><button type="button" data-note="4" aria-label="Pluck B, key 5"><i class="guzheng-bridge" aria-hidden="true"></i><span><b>B</b><small>5</small></span></button></div><div class="instrument-reading" aria-hidden="true"><span id="gesture-reading">A space waiting for your touch.</span><span id="note-reading">D pentatonic</span></div></div>
+          <ol class="instrument-gestures" id="instrument-help"><li><strong>01 / Pluck</strong><span>Touch one of five horizontal strings. A note becomes a line of light.</span></li><li><strong>02 / Bend &amp; sweep</strong><span>Hold and move sideways to bend; sweep up or down across strings to play a phrase.</span></li><li><strong>03 / Listen</strong><span>Lift your hand. Let the sound and its trace settle.</span></li></ol>
+          <div class="instrument-footer"><p id="study-feedback" role="status">Sound is off. Enable it when you are ready; you can explore the image silently.</p><p class="instrument-keys">Keyboard: focus a string, then 1–5 to pluck, ←/→ or ↑/↓ to bend, Esc to quiet. Enter or Space also plucks.</p></div>
+        </div>
+        <p class="study-fallback">Enable JavaScript to play this sound-and-image study. A touch would make a note and a luminous trace; a held upward gesture would bend both.</p>
+        <p class="study-credit">Sound: <a href="https://freesound.org/people/nanliu_music/sounds/847157/">guzheng single-note sample by nanliu_music</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>, trimmed and pitch-shifted. Not Claire’s recording. Background: AI concept image.</p>
+      </section>
+    </main>
+    <footer class="sound-footer wrap"><a href="art.html#interaction-study">Back to work directions</a><a href="about.html#site-credits">Site credits</a></footer>
+  </body>
+</html>
